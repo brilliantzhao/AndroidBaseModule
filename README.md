@@ -6,7 +6,7 @@ android base module project
 
 1)  新工程建议直接下载AndroidBaseModule，修改包名后在此基础上开发；
     
-    工程地址为：https://github.com/BrillantZhao/AndroidBaseModule
+    工程地址为：https://github.com/BrillantZhao/AndroidMouldProject
 
 2) Add Library module as a dependency in your build.gradle file.
 
@@ -40,7 +40,7 @@ Add it in your root build.gradle at the end of repositories:
 	    
 ### 详细介绍
 
-参见 AndroidBaseModule，工程地址为：https://github.com/BrillantZhao/AndroidBaseModule
+参见 AndroidBaseModule，工程地址为：https://github.com/BrillantZhao/AndroidMouldProject
 
 
 ###License
