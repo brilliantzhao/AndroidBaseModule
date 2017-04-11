@@ -74,12 +74,8 @@ dependencies {
     //悬浮动画菜单
     compile 'cn.hugeterry.updatefun:updatefun:1.8.6'
     //fire.im自动更新
-    compile 'com.umeng.analytics:analytics:latest.integration'
-    //友盟统计
     // 基于SharedPreferences存储，可直接存储对象
     compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
-    //图片缩放
-//    compile 'com.commit451:PhotoView:1.2.4'
     compile files('libs/commons-codec-1.6.jar')
 
     //=== Butter Knife  (https://github.com/JakeWharton/butterknife)

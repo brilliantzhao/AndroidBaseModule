@@ -35,7 +35,7 @@ Add it in your root build.gradle at the end of repositories:
 ##### Step 2. Add the dependency
 
     dependencies {
-	        compile 'com.github.BrillantZhao:AndroidBaseModule:1.0.1'
+	        compile 'com.github.BrillantZhao:AndroidBaseModule:1.0.2'
 	    }
 	    
 ### 详细介绍
