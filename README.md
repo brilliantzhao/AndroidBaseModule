@@ -15,27 +15,27 @@ or
 ##### Step 1. Add the JitPack repository to your build file 
 
 Add it in your root build.gradle at the end of repositories:
-
-	allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-			// hotfix(项目中使用了阿里的hotfix热修复技术，此处需要引入)
-            maven {
-               url "http://repo.baichuan-android.taobao.com/content/groups/BaichuanRepositories"
-            }
-            // ali httpdns(项目中使用了阿里的dns域名解析，此处需要引入)
-            maven {
-               url 'http://maven.aliyun.com/nexus/content/repositories/releases/'
-            }
+```xml
+allprojects {
+    repositories {
+		...
+		maven { url 'https://jitpack.io' }
+		// hotfix(项目中使用了阿里的hotfix热修复技术，此处需要引入)
+        maven {
+        url "http://repo.baichuan-android.taobao.com/content/groups/BaichuanRepositories"
+        }
+        // ali httpdns(项目中使用了阿里的dns域名解析，此处需要引入)
+        maven {
+        url 'http://maven.aliyun.com/nexus/content/repositories/releases/'
+        }
 			
-		}
+	    }
 	}
-
+```
 ##### Step 2. Add the dependency
 
     dependencies {
-	        compile 'com.github.BrillantZhao:AndroidBaseModule:1.0.2'
+	        compile 'com.github.BrillantZhao:AndroidBaseModule:1.0.3'
 	    }
 	    
 ### 详细介绍
