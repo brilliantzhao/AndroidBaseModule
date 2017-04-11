@@ -20,11 +20,11 @@ Add it in your root build.gradle at the end of repositories:
 		repositories {
 			...
 			maven { url 'https://jitpack.io' }
-			// hotfix
+			// hotfix(项目中使用了阿里的hotfix热修复技术，此处需要引入)
             maven {
                url "http://repo.baichuan-android.taobao.com/content/groups/BaichuanRepositories"
             }
-            // ali httpdns
+            // ali httpdns(项目中使用了阿里的dns域名解析，此处需要引入)
             maven {
                url 'http://maven.aliyun.com/nexus/content/repositories/releases/'
             }
@@ -35,7 +35,7 @@ Add it in your root build.gradle at the end of repositories:
 ##### Step 2. Add the dependency
 
     dependencies {
-	        compile 'com.github.BrillantZhao:AndroidMouldProject:1.0.1'
+	        compile 'com.github.BrillantZhao:AndroidBaseModule:1.0.1'
 	    }
 	    
 ### 详细介绍
