@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 
-group='com.github.BrillantZhao'
+group='com.github.BrilliantZhao'
 
 android {
     compileSdkVersion 25
