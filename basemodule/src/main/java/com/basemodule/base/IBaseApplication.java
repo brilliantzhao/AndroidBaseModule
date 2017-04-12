@@ -33,7 +33,6 @@ import java.net.URL;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.logging.Level;
 
 import javax.net.ssl.HostnameVerifier;
@@ -271,9 +270,10 @@ public class IBaseApplication extends MultiDexApplication {
     /**
      * ali httpdns初始化
      *
-     * @param accountID
+     * @param accountID dns账号
+     * @param hostList  与解析域名列表 new ArrayList<>(Arrays.asList("www.aliyun.com", "www.taobao.com"))
      */
-    protected void initHttpDns(String accountID) {
+    protected void initHttpDns(String accountID, ArrayList hostList) {
         try {
             // 设置APP Context和Account ID，并初始化HTTPDNS
             httpdns = HttpDns.getService(getApplicationContext(), accountID);
@@ -290,57 +290,68 @@ public class IBaseApplication extends MultiDexApplication {
             // 将filter传进httpdns，解析时会回调shouldDegradeHttpDNS方法，判断是否降级
             httpdns.setDegradationFilter(filter);
             // 设置预解析域名列表
-            httpdns.setPreResolveHosts(new ArrayList<>(Arrays.asList("www.aliyun.com", "www.taobao.com")));
+            httpdns.setPreResolveHosts(hostList);
 
-            // 发送网络请求
-            String originalUrl = "http://www.aliyun.com";
-            URL url = new URL(originalUrl);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            // 异步接口获取IP
-            String ip = httpdns.getIpByHostAsync(url.getHost());
+            // 示例
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        // 发送网络请求
+                        String originalUrl = "http://www.aliyun.com";
+                        URL url = new URL(originalUrl);
+                        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                        // 异步接口获取IP
+                        String ip = httpdns.getIpByHostAsync(url.getHost());
 
-            if (ip != null) {
-                // 通过HTTPDNS获取IP成功，进行URL替换和HOST头设置
-                Logger.d("Get IP: " + ip + " for host: " + url.getHost() + " from HTTPDNS successfully!");
-                String newUrl = originalUrl.replaceFirst(url.getHost(), ip);
-                conn = (HttpURLConnection) new URL(newUrl).openConnection();
-                // 设置HTTP请求头Host域
-                conn.setRequestProperty("Host", url.getHost());
-            }
-            DataInputStream dis = new DataInputStream(conn.getInputStream());
-            int len;
-            byte[] buff = new byte[4096];
-            StringBuilder response = new StringBuilder();
-            while ((len = dis.read(buff)) != -1) {
-                response.append(new String(buff, 0, len));
-            }
-            Logger.d("Response: " + response.toString());
+                        if (ip != null) {
+                            // 通过HTTPDNS获取IP成功，进行URL替换和HOST头设置
+                            Logger.d("Get IP: " + ip + " for host: " + url.getHost() + " from HTTPDNS successfully!");
+                            String newUrl = originalUrl.replaceFirst(url.getHost(), ip);
+                            conn = (HttpURLConnection) new URL(newUrl).openConnection();
+                            // 设置HTTP请求头Host域
+                            conn.setRequestProperty("Host", url.getHost());
+                        }
+                        DataInputStream dis = new DataInputStream(conn.getInputStream());
+                        int len;
+                        byte[] buff = new byte[4096];
+                        StringBuilder response = new StringBuilder();
+                        while ((len = dis.read(buff)) != -1) {
+                            response.append(new String(buff, 0, len));
+                        }
+                        Logger.d("Response: " + response.toString());
 
-            // 允许返回过期的IP
-            httpdns.setExpiredIPEnabled(true);
-            // 异步接口获取IP
-            ip = httpdns.getIpByHostAsync(url.getHost());
-            if (ip != null) {
-                // 通过HTTPDNS获取IP成功，进行URL替换和HOST头设置
-                Logger.d("Get IP: " + ip + " for host: " + url.getHost() + " from HTTPDNS successfully!");
-                String newUrl = originalUrl.replaceFirst(url.getHost(), ip);
-                conn = (HttpURLConnection) new URL(newUrl).openConnection();
-                // 设置HTTP请求头Host域
-                conn.setRequestProperty("Host", url.getHost());
-            }
-            len = 0;
-            response = new StringBuilder();
-            dis = new DataInputStream(conn.getInputStream());
-            while ((len = dis.read(buff)) != -1) {
-                response.append(new String(buff, 0, len));
-            }
-            Logger.d("Response: " + response.toString());
+                        // 允许返回过期的IP
+                        httpdns.setExpiredIPEnabled(true);
+                        // 异步接口获取IP
+                        ip = httpdns.getIpByHostAsync(url.getHost());
+                        if (ip != null) {
+                            // 通过HTTPDNS获取IP成功，进行URL替换和HOST头设置
+                            Logger.d("Get IP: " + ip + " for host: " + url.getHost() + " from HTTPDNS successfully!");
+                            String newUrl = originalUrl.replaceFirst(url.getHost(), ip);
+                            conn = (HttpURLConnection) new URL(newUrl).openConnection();
+                            // 设置HTTP请求头Host域
+                            conn.setRequestProperty("Host", url.getHost());
+                        }
+                        len = 0;
+                        response = new StringBuilder();
+                        dis = new DataInputStream(conn.getInputStream());
+                        while ((len = dis.read(buff)) != -1) {
+                            response.append(new String(buff, 0, len));
+                        }
+                        Logger.d("Response: " + response.toString());
 
-            // 测试黑名单中的域名
-            ip = httpdns.getIpByHostAsync("www.taobao.com");
-            if (ip == null) {
-                Logger.d("由于在降级策略中过滤了www.taobao.com，无法从HTTPDNS服务中获取对应域名的IP信息");
-            }
+                        // 测试黑名单中的域名
+                        ip = httpdns.getIpByHostAsync("www.taobao.com");
+                        if (ip == null) {
+                            Logger.d("由于在降级策略中过滤了www.taobao.com，无法从HTTPDNS服务中获取对应域名的IP信息");
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+            }).start();
         } catch (Exception e) {
             e.printStackTrace();
         }
