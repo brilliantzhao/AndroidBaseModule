@@ -254,7 +254,6 @@ public class IBaseApplication extends MultiDexApplication {
                             // 表明新补丁生效需要重启. 开发者可提示用户或者强制重启;
                             // 建议: 用户可以监听进入后台事件, 然后应用自杀
                             Logger.i("HotFixManager--新补丁生效需要重启. 业务方可自行实现逻辑, 提示用户或者强制重启, 可以监听应用进入后台事件, 然后应用自杀");
-//                            NativeUtil.restartApp(getApplicationContext());
                         } else if (code == PatchStatus.CODE_LOAD_FAIL) {
                             // 内部引擎异常, 推荐此时清空本地补丁, 防止失败补丁重复加载
                             // SophixManager.getInstance().cleanPatches();
