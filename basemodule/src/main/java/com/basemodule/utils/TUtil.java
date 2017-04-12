@@ -7,6 +7,12 @@ import java.lang.reflect.ParameterizedType;
  */
 public class TUtil {
 
+    /**
+     * @param o
+     * @param i
+     * @param <T>
+     * @return
+     */
     public static <T> T getT(Object o, int i) {
         try {
             return ((Class<T>) ((ParameterizedType) (o.getClass()
@@ -22,6 +28,10 @@ public class TUtil {
         return null;
     }
 
+    /**
+     * @param className
+     * @return
+     */
     public static Class<?> forName(String className) {
         try {
             return Class.forName(className);
