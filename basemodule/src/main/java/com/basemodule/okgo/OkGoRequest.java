@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.google.gson.Gson;
 import com.lzy.okgo.OkGo;
+import com.lzy.okgo.request.GetRequest;
 import com.lzy.okgo.request.PostRequest;
 
 import java.io.File;
@@ -29,7 +30,7 @@ public class OkGoRequest {
      * @param url
      * @return
      */
-    public static PostRequest getPostJsonRequest(Context context, String url, HashMap<String, Object> map) {
+    public static PostRequest postJsonRequest(Context context, String url, HashMap<String, Object> map) {
         return OkGo.post(url)
                 .tag(context)//以对应activity或fragment作为网络请求tag，以便即时取消网络请求
                 //	.params("param1", "paramValue1")//  这里不要使用params，upJson 与 params 是互斥的，只有 upJson 的数据会被上传
@@ -44,7 +45,7 @@ public class OkGoRequest {
      * @param upString
      * @return
      */
-    public static PostRequest getPostStringRequest(Context context, String url, String upString) {
+    public static PostRequest postStringRequest(Context context, String url, String upString) {
         return OkGo.post(url)
                 .tag(context)//以对应activity或fragment作为网络请求tag，以便即时取消网络请求
                 //	.params("param1", "paramValue1")//  这里不要使用params，upJson 与 params 是互斥的，只有 upJson 的数据会被上传
@@ -76,6 +77,21 @@ public class OkGoRequest {
         return OkGo.post(url)
                 .tag(context)//以对应activity或fragment作为网络请求tag，以便即时取消网络请求
                 ;
+    }
+
+    /**
+     * 普通Get
+     *
+     * @param context
+     * @param url
+     * @param map
+     * @return
+     */
+    public static GetRequest getStringRequest(Context context, String url,  HashMap<String, String> map) {
+        return OkGo.get(url)
+                .tag(context)//以对应activity或fragment作为网络请求tag，以便即时取消网络请求
+                .params(map);
+
     }
 
 
