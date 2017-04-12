@@ -1,7 +1,7 @@
 package com.basemodule.okgo.callback;
 
 import com.basemodule.base.IBaseApplication;
-import com.basemodule.baseapp.BaseRespose;
+import com.basemodule.base.IBaseBean;
 import com.basemodule.okgo.utils.Convert;
 import com.google.gson.stream.JsonReader;
 import com.lzy.okgo.convert.Converter;
@@ -27,7 +27,7 @@ import okhttp3.Response;
  * 修订历史：
  * ================================================
  */
-public class JsonConvert<T extends BaseRespose> implements Converter<T> {
+public class JsonConvert<T extends IBaseBean> implements Converter<T> {
 
     /**
      * 该方法是子线程处理，不能做ui相关的工作

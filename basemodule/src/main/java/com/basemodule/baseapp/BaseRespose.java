@@ -9,23 +9,22 @@ import java.io.Serializable;
  */
 public class BaseRespose<T> implements Serializable {
 
-    private String status;
+    public String code;
 
-    private String message;
+    public String msg;
 
-    public String getStatus() {
-        return status;
+    public T data;
+
+    public boolean success() {
+        return "1".equals(code);
     }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
+    @Override
+    public String toString() {
+        return "BaseRespose{" +
+                "code='" + code + '\'' +
+                ", msg='" + msg + '\'' +
+                ", data=" + data +
+                '}';
     }
 }
