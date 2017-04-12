@@ -67,7 +67,7 @@ public class JsonConvert<T extends BaseRespose> implements Converter<T> {
         T data = Convert.fromJson(jsonReader, type);
         response.close();
 
-        String code = data.code + "";
+        String code = data.getStatus() + "";
         //这里的0是以下意思
         //一般来说服务器会和客户端约定一个数表示成功，其余的表示失败，这里根据实际情况修改
         if (code.equals(IBaseApplication.getRespSuccessCode())) {
@@ -79,7 +79,7 @@ public class JsonConvert<T extends BaseRespose> implements Converter<T> {
             //比如：用户账号在其他设别上登录，在此实现相应的逻辑，弹出对话或者跳转到其他页面等,该抛出错误，会在onError中回调。
             throw new IllegalStateException("用户账号在其他设别上登录");
         } else {
-            throw new IllegalStateException("错误代码：" + code + "，错误信息：" + data.msg);
+            throw new IllegalStateException("错误代码：" + code + "，错误信息：" + data.getMessage());
         }
         return data;
     }
