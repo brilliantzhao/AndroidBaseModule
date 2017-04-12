@@ -59,12 +59,6 @@ public class IBaseApplication extends MultiDexApplication {
     private static HttpDnsService httpdns; // ali httpdns
 
     //=== okgo参数设置
-    private static String RESP_SUCCESS_CODE = "1"; // 请求成功的返回码
-
-    private static String RESP_NOT_LOGIN = "-1";  // 用户尚未登录的返回码
-
-    private static String RESP_LOGIN_OTHER_DEVICE = "-2"; //用户在其他设备登录的返回码
-
     private static int DEF_CONNECT_TIMEOUT = 20000; // 默认的连接超时
 
     private static int DEF_READ_TIMEOUT = 20000; // 默认的连接超时
@@ -118,19 +112,10 @@ public class IBaseApplication extends MultiDexApplication {
     /**
      * okgo初始化
      *
-     * @param RESP_SUCCESS_CODE
-     * @param RESP_NOT_LOGIN
-     * @param RESP_LOGIN_OTHER_DEVICE
-     * @param httpHeaders             公共头部
-     * @param httpParams              公共参数
+     * @param httpHeaders 公共头部
+     * @param httpParams  公共参数
      */
-    protected void initOkGo(String RESP_SUCCESS_CODE, String RESP_NOT_LOGIN, String RESP_LOGIN_OTHER_DEVICE,
-                            HttpHeaders httpHeaders, HttpParams httpParams) {
-        // 参数配置
-        setRespSuccessCode(RESP_SUCCESS_CODE);
-        setRespNotLogin(RESP_NOT_LOGIN);
-        setRespLoginOtherDevice(RESP_LOGIN_OTHER_DEVICE);
-
+    protected void initOkGo(HttpHeaders httpHeaders, HttpParams httpParams) {
 
         //---------这里给出的是示例代码,告诉你可以这么传,实际使用的时候,根据需要传,不需要就不传-------------//
         HttpHeaders headers = new HttpHeaders();
@@ -254,7 +239,6 @@ public class IBaseApplication extends MultiDexApplication {
                             // 表明新补丁生效需要重启. 开发者可提示用户或者强制重启;
                             // 建议: 用户可以监听进入后台事件, 然后应用自杀
                             Logger.i("HotFixManager--新补丁生效需要重启. 业务方可自行实现逻辑, 提示用户或者强制重启, 可以监听应用进入后台事件, 然后应用自杀");
-//                            NativeUtil.restartApp(getApplicationContext());
                         } else if (code == PatchStatus.CODE_LOAD_FAIL) {
                             // 内部引擎异常, 推荐此时清空本地补丁, 防止失败补丁重复加载
                             // SophixManager.getInstance().cleanPatches();
@@ -409,30 +393,6 @@ public class IBaseApplication extends MultiDexApplication {
 
     public static Resources getAppResources() {
         return appInstance.getResources();
-    }
-
-    public static String getRespSuccessCode() {
-        return RESP_SUCCESS_CODE;
-    }
-
-    public static void setRespSuccessCode(String respSuccessCode) {
-        RESP_SUCCESS_CODE = respSuccessCode;
-    }
-
-    public static String getRespNotLogin() {
-        return RESP_NOT_LOGIN;
-    }
-
-    public static void setRespNotLogin(String respNotLogin) {
-        RESP_NOT_LOGIN = respNotLogin;
-    }
-
-    public static String getRespLoginOtherDevice() {
-        return RESP_LOGIN_OTHER_DEVICE;
-    }
-
-    public static void setRespLoginOtherDevice(String respLoginOtherDevice) {
-        RESP_LOGIN_OTHER_DEVICE = respLoginOtherDevice;
     }
 
     public static HttpDnsService getHttpdns() {
