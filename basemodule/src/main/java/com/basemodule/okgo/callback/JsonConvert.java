@@ -66,7 +66,7 @@ public class JsonConvert<T extends BaseRespose> implements Converter<T> {
         //有数据类型，表示有data
         T data = Convert.fromJson(jsonReader, type);
         response.close();
-        //===
+
         String code = data.code + "";
         //这里的0是以下意思
         //一般来说服务器会和客户端约定一个数表示成功，其余的表示失败，这里根据实际情况修改
