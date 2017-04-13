@@ -5,7 +5,6 @@ import android.content.Context;
 import com.basemodule.R;
 import com.basemodule.base.IBaseApplication;
 import com.basemodule.utils.NetWorkUtils;
-import com.basemodule.widget.CustomProgressDialog;
 import com.orhanobut.logger.Logger;
 
 import rx.Subscriber;
@@ -39,60 +38,24 @@ public abstract class RxSubscriber<T> extends Subscriber<T> {
 
     private String msg;
 
-    private boolean showDialog = true;
-
-    private CustomProgressDialog dialog;
-
-    /**
-     * 是否显示浮动dialog
-     */
-    public void showDialog() {
-        this.showDialog = true;
-    }
-
-    public void hideDialog() {
-        this.showDialog = true;
-    }
-
-    public RxSubscriber(Context context, String msg, boolean showDialog) {
+    public RxSubscriber(Context context, String msg) {
         this.mContext = context;
         this.msg = msg;
-        this.showDialog = showDialog;
     }
 
     public RxSubscriber(Context context) {
-        this(context, IBaseApplication.getAppInstance().getString(R.string.loading), true);
-    }
-
-    public RxSubscriber(Context context, boolean showDialog) {
-        this(context, IBaseApplication.getAppInstance().getString(R.string.loading), showDialog);
+        this(context, IBaseApplication.getAppInstance().getString(R.string.loading));
     }
 
     @Override
     public void onCompleted() {
-        if (showDialog) stopProgressDialog();
         _onAfter();
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        if (showDialog) startProgressDialog(msg);
         _onStart();
-    }
-
-    private void startProgressDialog(String msg) {
-        if (dialog == null) {
-            dialog = CustomProgressDialog.createDialog(mContext);
-        }
-        dialog.setMessage(msg);
-        dialog.show();
-    }
-
-    private void stopProgressDialog() {
-        if (dialog != null) {
-            dialog.dismiss();
-        }
     }
 
     @Override
@@ -106,8 +69,6 @@ public abstract class RxSubscriber<T> extends Subscriber<T> {
 
         Logger.d(TAG, "onError: " + e.getMessage());
 
-        if (showDialog)
-            stopProgressDialog();
         e.printStackTrace();
         //网络
         if (!NetWorkUtils.isNetConnected(IBaseApplication.getAppInstance())) {
