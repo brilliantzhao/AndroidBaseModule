@@ -1,7 +1,5 @@
 apply plugin: 'com.android.library'
 
-group='com.github.BrilliantZhao'
-
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
@@ -112,5 +110,7 @@ dependencies {
 
     //=== fastjson (https://github.com/alibaba/fastjson)
     compile 'com.alibaba:fastjson:1.2.31'
+
+    //################## 引用第三方工程
 
 }
