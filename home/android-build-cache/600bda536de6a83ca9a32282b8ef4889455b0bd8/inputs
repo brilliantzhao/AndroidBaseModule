@@ -1,0 +1,7 @@
+COMMAND=PREDEX_LIBRARY
+FILE_PATH=C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.alibaba\fastjson\1.2.31\1ca964122c53f03f6fc3938b58c16d63b40490ab\fastjson-1.2.31.jar
+FILE_HASH=1ca964122c53f03f6fc3938b58c16d63b40490ab
+BUILD_TOOLS_REVISION=25.0.2
+JUMBO_MODE=false
+OPTIMIZE=true
+MULTI_DEX=false
