@@ -18,7 +18,6 @@ public class MainActivity extends IBaseActivity {
 
     @Override
     public void initPresenter() {
-
     }
 
     @Override
@@ -27,22 +26,14 @@ public class MainActivity extends IBaseActivity {
     }
 
     @Override
-    protected void updateViews(boolean isRefresh) {
-
+    public void showLoading() {
     }
 
     @Override
-    public void showLoading() {
-
+    public void showLoading(String notice) {
     }
 
     @Override
     public void hideLoading() {
-
-    }
-
-    @Override
-    public void showErrorTip(String msg) {
-
     }
 }
