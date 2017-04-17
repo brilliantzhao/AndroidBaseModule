@@ -36,4 +36,9 @@ public class MainActivity extends IBaseActivity {
     @Override
     public void hideLoading() {
     }
+
+    @Override
+    public void showErrorTip(String msg) {
+
+    }
 }
