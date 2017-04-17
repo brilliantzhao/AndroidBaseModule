@@ -91,7 +91,6 @@ public class OkGoRequest {
         return OkGo.get(url)
                 .tag(context)//以对应activity或fragment作为网络请求tag，以便即时取消网络请求
                 .params(map);
-
     }
 
 

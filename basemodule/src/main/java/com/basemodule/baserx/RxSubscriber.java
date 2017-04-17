@@ -1,5 +1,6 @@
 package com.basemodule.baserx;
 
+import android.app.Dialog;
 import android.content.Context;
 
 import com.basemodule.R;
@@ -38,24 +39,66 @@ public abstract class RxSubscriber<T> extends Subscriber<T> {
 
     private String msg;
 
-    public RxSubscriber(Context context, String msg) {
+    private boolean showDialog = true;
+
+    private Dialog dialog;
+
+    /**
+     * 是否显示浮动dialog
+     */
+    public void showDialog() {
+        this.showDialog = true;
+    }
+
+    public void hideDialog() {
+        this.showDialog = true;
+    }
+
+    public RxSubscriber(Context context, String msg, boolean showDialog) {
         this.mContext = context;
         this.msg = msg;
+        this.showDialog = showDialog;
     }
 
     public RxSubscriber(Context context) {
-        this(context, IBaseApplication.getAppInstance().getString(R.string.loading));
+        this(context, IBaseApplication.getAppInstance().getString(R.string.loading), true);
+    }
+
+    public RxSubscriber(Context context, boolean showDialog) {
+        this(context, IBaseApplication.getAppInstance().getString(R.string.loading), showDialog);
     }
 
     @Override
     public void onCompleted() {
+        if (showDialog) stopProgressDialog();
         _onAfter();
     }
 
     @Override
     public void onStart() {
         super.onStart();
+        if (showDialog) startProgressDialog(msg);
         _onStart();
+    }
+
+    /**
+     *
+     * @param msg
+     */
+    private void startProgressDialog(String msg) {
+        if (dialog == null) {
+            dialog = IBaseApplication.getProgressDialog();
+        }
+        dialog.show();
+    }
+
+    /**
+     *
+     */
+    private void stopProgressDialog() {
+        if (dialog != null) {
+            dialog.dismiss();
+        }
     }
 
     @Override
@@ -69,6 +112,8 @@ public abstract class RxSubscriber<T> extends Subscriber<T> {
 
         Logger.d(TAG, "onError: " + e.getMessage());
 
+        if (showDialog)
+            stopProgressDialog();
         e.printStackTrace();
         //网络
         if (!NetWorkUtils.isNetConnected(IBaseApplication.getAppInstance())) {
