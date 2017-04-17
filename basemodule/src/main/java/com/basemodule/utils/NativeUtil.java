@@ -10,7 +10,6 @@ import android.net.Uri;
 import android.os.IBinder;
 
 import com.basemodule.service.DownloadService;
-import com.basemodule.service.ICallbackResult;
 
 import java.io.File;
 
