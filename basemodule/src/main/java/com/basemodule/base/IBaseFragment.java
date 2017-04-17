@@ -76,6 +76,7 @@ public abstract class IBaseFragment<T extends IBasePresenter, E extends IBaseMod
         }
         initPresenter();
         initView();
+        initData();
         return rootView;
     }
 
@@ -87,6 +88,9 @@ public abstract class IBaseFragment<T extends IBasePresenter, E extends IBaseMod
 
     //初始化view
     protected abstract void initView();
+
+    //初始化data数据
+    public abstract void initData();
 
     @Override
     public void onDestroyView() {

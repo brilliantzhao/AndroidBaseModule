@@ -26,6 +26,10 @@ public class MainActivity extends IBaseActivity {
     }
 
     @Override
+    public void initData() {
+    }
+
+    @Override
     public void showLoading() {
     }
 

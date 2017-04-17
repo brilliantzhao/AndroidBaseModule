@@ -74,6 +74,7 @@ public abstract class IBaseActivity<T extends IBasePresenter, E extends IBaseMod
         }
         this.initPresenter();
         this.initView();
+        this.initData();
     }
 
     /**
@@ -95,6 +96,9 @@ public abstract class IBaseActivity<T extends IBasePresenter, E extends IBaseMod
 
     //初始化view
     public abstract void initView();
+
+    //初始化data数据
+    public abstract void initData();
 
     /**
      * 着色状态栏（5.0以上系统有效）
