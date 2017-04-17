@@ -1,6 +1,5 @@
 package com.basemodule.base;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -88,46 +87,6 @@ public abstract class IBaseFragment<T extends IBasePresenter, E extends IBaseMod
 
     //初始化view
     protected abstract void initView();
-
-
-    /**
-     * 通过Class跳转界面
-     **/
-    public void startActivity(Class<?> cls) {
-        startActivity(cls, null);
-    }
-
-    /**
-     * 通过Class跳转界面
-     **/
-    public void startActivityForResult(Class<?> cls, int requestCode) {
-        startActivityForResult(cls, null, requestCode);
-    }
-
-    /**
-     * 含有Bundle通过Class跳转界面
-     **/
-    public void startActivityForResult(Class<?> cls, Bundle bundle,
-                                       int requestCode) {
-        Intent intent = new Intent();
-        intent.setClass(getActivity(), cls);
-        if (bundle != null) {
-            intent.putExtras(bundle);
-        }
-        startActivityForResult(intent, requestCode);
-    }
-
-    /**
-     * 含有Bundle通过Class跳转界面
-     **/
-    public void startActivity(Class<?> cls, Bundle bundle) {
-        Intent intent = new Intent();
-        intent.setClass(getActivity(), cls);
-        if (bundle != null) {
-            intent.putExtras(bundle);
-        }
-        startActivity(intent);
-    }
 
     @Override
     public void onDestroyView() {
