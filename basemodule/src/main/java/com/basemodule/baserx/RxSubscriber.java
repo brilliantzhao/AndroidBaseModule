@@ -1,11 +1,11 @@
 package com.basemodule.baserx;
 
+import android.app.Dialog;
 import android.content.Context;
 
 import com.basemodule.R;
 import com.basemodule.base.IBaseApplication;
 import com.basemodule.utils.NetWorkUtils;
-import com.basemodule.widget.CustomProgressDialog;
 import com.orhanobut.logger.Logger;
 
 import rx.Subscriber;
@@ -37,11 +37,9 @@ public abstract class RxSubscriber<T> extends Subscriber<T> {
 
     private Context mContext;
 
-    private String msg;
-
     private boolean showDialog = true;
 
-    private CustomProgressDialog dialog;
+    private Dialog dialog;
 
     /**
      * 是否显示浮动dialog
@@ -54,18 +52,9 @@ public abstract class RxSubscriber<T> extends Subscriber<T> {
         this.showDialog = true;
     }
 
-    public RxSubscriber(Context context, String msg, boolean showDialog) {
-        this.mContext = context;
-        this.msg = msg;
-        this.showDialog = showDialog;
-    }
-
-    public RxSubscriber(Context context) {
-        this(context, IBaseApplication.getAppInstance().getString(R.string.loading), true);
-    }
-
     public RxSubscriber(Context context, boolean showDialog) {
-        this(context, IBaseApplication.getAppInstance().getString(R.string.loading), showDialog);
+        this.mContext = context;
+        this.showDialog = showDialog;
     }
 
     @Override
@@ -77,18 +66,22 @@ public abstract class RxSubscriber<T> extends Subscriber<T> {
     @Override
     public void onStart() {
         super.onStart();
-        if (showDialog) startProgressDialog(msg);
+        if (showDialog) startProgressDialog();
         _onStart();
     }
 
-    private void startProgressDialog(String msg) {
+    /**
+     */
+    private void startProgressDialog() {
         if (dialog == null) {
-            dialog = CustomProgressDialog.createDialog(mContext);
+            dialog = IBaseApplication.getProgressDialog();
         }
-        dialog.setMessage(msg);
         dialog.show();
     }
 
+    /**
+     *
+     */
     private void stopProgressDialog() {
         if (dialog != null) {
             dialog.dismiss();

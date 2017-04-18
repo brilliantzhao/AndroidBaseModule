@@ -1,0 +1,7 @@
+COMMAND=PREDEX_LIBRARY
+FILE_PATH=C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.aliyun.ams\alicloud-android-utdid\1.1.5.3\989c3bb13060da1e3154bfe00236f76453a2725f\alicloud-android-utdid-1.1.5.3.jar
+FILE_HASH=989c3bb13060da1e3154bfe00236f76453a2725f
+BUILD_TOOLS_REVISION=25.0.2
+JUMBO_MODE=false
+OPTIMIZE=true
+MULTI_DEX=false

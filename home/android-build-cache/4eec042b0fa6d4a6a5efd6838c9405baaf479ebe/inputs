@@ -1,0 +1,7 @@
+COMMAND=PREDEX_LIBRARY
+FILE_PATH=C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.aliyun.ams\alicloud-android-httpdns\1.0.10\b7b1fabc7a8f13038e66f364f785227a596bf44\alicloud-android-httpdns-1.0.10.jar
+FILE_HASH=0b7b1fabc7a8f13038e66f364f785227a596bf44
+BUILD_TOOLS_REVISION=25.0.2
+JUMBO_MODE=false
+OPTIMIZE=true
+MULTI_DEX=false

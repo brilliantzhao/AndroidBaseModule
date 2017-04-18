@@ -1,6 +1,7 @@
 package com.basemodule.base;
 
 import android.app.Application;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.res.Resources;
@@ -57,6 +58,8 @@ public class IBaseApplication extends MultiDexApplication {
     private static PackageInfo packageInfo;
 
     private static HttpDnsService httpdns; // ali httpdns
+
+    private static Dialog progressDialog;
 
     //=== okgo参数设置
     private static int DEF_CONNECT_TIMEOUT = 20000; // 默认的连接超时
@@ -403,6 +406,15 @@ public class IBaseApplication extends MultiDexApplication {
         IBaseApplication.httpdns = httpdns;
     }
 
-    //#################################################################### getter and setter end
+    public static Dialog getProgressDialog() {
+        return progressDialog;
+    }
+
+    public static void setProgressDialog(Dialog progressDialog) {
+        IBaseApplication.progressDialog = progressDialog;
+    }
+
+
+//#################################################################### getter and setter end
 
 }

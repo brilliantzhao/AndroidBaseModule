@@ -1,0 +1,7 @@
+COMMAND=PREDEX_LIBRARY
+FILE_PATH=C:\Users\Administrator\Documents\AndroidBaseModule\home\android-build-cache\8b7d3233b043a272aeae8d980799915ebd87c47f\output\jars\classes.jar
+FILE_HASH=518768f3200963fbfec652f498da2c9d39245234
+BUILD_TOOLS_REVISION=25.0.2
+JUMBO_MODE=false
+OPTIMIZE=true
+MULTI_DEX=false
