@@ -30,7 +30,7 @@ public class OkGoRequest {
      * @param url
      * @return
      */
-    public static PostRequest postJsonRequest(Context context, String url, HashMap<String, String> map) {
+    public static PostRequest postJsonRequest(Context context, String url, HashMap<String, Object> map) {
         return OkGo.post(url)
                 .tag(context)//以对应activity或fragment作为网络请求tag，以便即时取消网络请求
                 //	.params("param1", "paramValue1")//  这里不要使用params，upJson 与 params 是互斥的，只有 upJson 的数据会被上传
@@ -94,7 +94,7 @@ public class OkGoRequest {
     }
 
     /**
-     * 普通Get
+     * 普通Get请求
      *
      * @param context
      * @param url
