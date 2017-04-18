@@ -30,7 +30,7 @@ public class OkGoRequest {
      * @param url
      * @return
      */
-    public static PostRequest postJsonRequest(Context context, String url, HashMap<String, Object> map) {
+    public static PostRequest postJsonRequest(Context context, String url, HashMap<String, String> map) {
         return OkGo.post(url)
                 .tag(context)//以对应activity或fragment作为网络请求tag，以便即时取消网络请求
                 //	.params("param1", "paramValue1")//  这里不要使用params，upJson 与 params 是互斥的，只有 upJson 的数据会被上传
@@ -53,16 +53,17 @@ public class OkGoRequest {
     }
 
     /**
-     * 图片上传
+     * 文件上传
      *
      * @param context
      * @param url
-     * @param files   文件的路径
+     * @param files   文件的路径集合
      * @return
      */
-    public static PostRequest formUploadRequest(Context context, String url, ArrayList<File> files) {
+    public static PostRequest formUploadRequest(Context context, String url, HashMap<String, String> map, ArrayList<File> files) {
         return OkGo.post(url)
                 .tag(context)//以对应activity或fragment作为网络请求tag，以便即时取消网络请求
+                .params(map)
                 .addFileParams("file", files);
     }
 
@@ -73,10 +74,23 @@ public class OkGoRequest {
      * @param url
      * @return
      */
-    public static PostRequest fileDownloadRequest(Context context, String url) {
+    public static PostRequest fileDownloadRequest(Context context, String url, HashMap<String, String> map) {
         return OkGo.post(url)
                 .tag(context)//以对应activity或fragment作为网络请求tag，以便即时取消网络请求
-                ;
+                .params(map);
+    }
+
+    /**
+     * 请求图片
+     *
+     * @param context
+     * @param url
+     * @return
+     */
+    public static PostRequest bitmapRequest(Context context, String url, HashMap<String, String> map) {
+        return OkGo.post(url)
+                .tag(context)//以对应activity或fragment作为网络请求tag，以便即时取消网络请求
+                .params(map);
     }
 
     /**
@@ -87,7 +101,7 @@ public class OkGoRequest {
      * @param map
      * @return
      */
-    public static GetRequest getStringRequest(Context context, String url,  HashMap<String, String> map) {
+    public static GetRequest getStringRequest(Context context, String url, HashMap<String, String> map) {
         return OkGo.get(url)
                 .tag(context)//以对应activity或fragment作为网络请求tag，以便即时取消网络请求
                 .params(map);
