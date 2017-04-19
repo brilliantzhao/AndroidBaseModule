@@ -95,12 +95,13 @@ android {
 
             if ("true".equals(IS_JENKINS)) {
                 timeNow = JENKINS_TIME
-                // 使用固定的名字，方便jenkins打包完成后自动上传到服务器
-//                outDirectory = outDirectory+'C:/Users/Administrator/Desktop/jenkins'
-                outDirectory = outDirectory+'/jenkins'
+                // 使用相对路径，构建后执行的 Execute Windows batch command 脚本为：
+                // curl -F "envType=1" -F "prodType=1001" -F "package=@E:\jenkins\workspace\AndroidFilePicker\app\build\outputs\apk\jenkins\filepicker.apk" https://172.16.88.230:8383/apiv1/app/upload --insecure
+                outDirectory = outDirectory + '/jenkins'
                 // 动态生成安装包名称
 //                newName = 'basemodule-v' +
 //                        APP_VERSION + '-' + variant.productFlavors[0].name + timeNow + '-' + variant.buildType.name + '.apk'
+                // 使用固定的名字，方便jenkins打包完成后自动上传到服务器
                 newName = 'basemodule.apk'
             } else {
                 timeNow = getDate()
