@@ -37,7 +37,30 @@ allprojects {
     dependencies {
 	        compile 'com.github.BrillantZhao:AndroidBaseModule:1.0.3'
 	    }
-	    
+	
+### 相关工具类
+ - ACache : 本地文件缓存工具类
+ - AdViewpagerUtil : 广告轮播viewpager管理
+ - 集合操作工具类 : 集合操作工具类
+ - DialogPermissionUtil : 权限对话框管理
+ - DisplayUtil : 屏幕相关的辅助类
+ - FormatUtil : 字符串校验
+ - GlideCircleTransfromUtil : glide转圆形图片
+ - GlideRoundTransformUtil : glide转换圆角图片
+ - ImageLoaderUtils : 图片加载工具类 使用glide框架封装
+ - IpUtils : ip管理
+ - JsonUtils : JSON解析二次封装
+ - KeyBordUtil : 输入框弹出管理
+ - ListUtils : 集合操作
+ - MeasureUtils : 尺寸转换
+ - NativeUtil : app相关信息,下载安装等
+ - NetWorkUtils : 网络管理工具
+ - SDCardUtils : SD卡工具箱
+ - TimeUtil : 日期处理类
+ - ToastUitl : Toast统一管理类
+ - TUtil : 类转换初始化
+ - ViewHolderUtil : 获取view
+	       
 ### 详细介绍
 
 参见 AndroidBaseModule，工程地址为：https://github.com/BrillantZhao/AndroidMouldProject
