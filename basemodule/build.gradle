@@ -36,24 +36,26 @@ dependencies {
     compile "com.android.support:support-v4:25.3.0"
     compile "com.android.support:design:25.3.0"
     testCompile 'junit:junit:4.12'
+    //=== multidex
+    compile 'com.android.support:multidex:1.0.1'
 
     //################## 引入第三方jar包
     compile files('libs/commons-codec-1.6.jar')
 
     //################## git上第三方库
-    //===
-    compile 'com.trello:rxlifecycle:1.0'
 
-    //===
+    //===SpinKit(https://github.com/ybq/Android-SpinKit)
     compile 'com.github.ybq:Android-SpinKit:1.1.0'
 
-    //=== multidex
-    compile 'com.android.support:multidex:1.0.1'
-
     //===retrofit和rxjava
+    //=== retrofit(https://github.com/square/retrofit)
     compile 'com.squareup.retrofit2:retrofit:2.0.0-beta3'
     compile 'com.squareup.okhttp3:logging-interceptor:3.1.2'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta4'
+    //=== rxjava(https://github.com/ReactiveX/RxJava)
     compile 'io.reactivex:rxjava:1.0.1'
+    //=== rxandroid(https://github.com/ReactiveX/RxAndroid)
     compile 'io.reactivex:rxandroid:1.0.1'
 
     //=== RxLifecycle  (https://github.com/trello/RxLifecycle)
@@ -68,14 +70,12 @@ dependencies {
     compile 'com.trello:rxlifecycle-kotlin:1.0'
 
     //===
-    compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
-    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta4'
     compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.0.8@aar'
 
-    //===
+    //=== logger (https://github.com/orhanobut/logger)
     compile 'com.orhanobut:logger:1.13'
 
-    //===
+    //=== glide (https://github.com/bumptech/glide)
     compile 'com.github.bumptech.glide:glide:3.6.1'
 
     //===
