@@ -14,6 +14,13 @@ public interface IBaseView {
     void showLoading();
 
     /**
+     * 带有文字的家在动画
+     *
+     * @param notice
+     */
+    void showLoading(String notice);
+
+    /**
      * 隐藏加载
      */
     void hideLoading();

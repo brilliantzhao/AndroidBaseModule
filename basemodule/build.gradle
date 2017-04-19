@@ -1,7 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
-
-group='com.github.BrilliantZhao'
 
 android {
     compileSdkVersion 25
@@ -14,13 +11,16 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    lintOptions {
+        abortOnError false
     }
 }
 
@@ -41,16 +41,21 @@ dependencies {
     compile files('libs/commons-codec-1.6.jar')
 
     //################## git上第三方库
+    //===
     compile 'com.trello:rxlifecycle:1.0'
+
     //===
     compile 'com.github.ybq:Android-SpinKit:1.1.0'
+
     //=== multidex
     compile 'com.android.support:multidex:1.0.1'
+
     //===retrofit和rxjava
     compile 'com.squareup.retrofit2:retrofit:2.0.0-beta3'
     compile 'com.squareup.okhttp3:logging-interceptor:3.1.2'
     compile 'io.reactivex:rxjava:1.0.1'
     compile 'io.reactivex:rxandroid:1.0.1'
+
     //=== RxLifecycle  (https://github.com/trello/RxLifecycle)
     compile 'com.trello:rxlifecycle:1.0'
     // If you want to bind to Android-specific lifecycles
@@ -61,40 +66,55 @@ dependencies {
     compile 'com.trello:rxlifecycle-navi:1.0'
     // If you want to use Kotlin syntax
     compile 'com.trello:rxlifecycle-kotlin:1.0'
+
     //===
     compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta4'
     compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.0.8@aar'
+
     //===
     compile 'com.orhanobut:logger:1.13'
+
     //===
     compile 'com.github.bumptech.glide:glide:3.6.1'
+
     //===
     compile 'com.github.clans:fab:1.6.4'
+
     //===
     compile 'cn.hugeterry.updatefun:updatefun:1.8.6'
+
     //=== 基于SharedPreferences存储，可直接存储对象
     compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
+
     //=== Butter Knife  (https://github.com/JakeWharton/butterknife)
     compile 'com.jakewharton:butterknife:8.5.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+
     //=== okhttp-OkGo  (https://github.com/jeasonlzy/okhttp-OkGo)
     compile 'com.lzy.net:okgo:2.1.4'        //可以单独使用，不需要依赖下方的扩展包
     compile 'com.lzy.net:okrx:0.1.2'        //RxJava扩展支持，根据需要添加
     compile 'com.lzy.net:okserver:1.1.3'    //下载管理和上传管理扩展，根据需要添加
+
     //=== ali hotfix 传递性依赖utdid这个sdk, 所以不需要重复依赖utdid.但是另一方面其它阿里系SDK也可能依赖了utdid这个SDK,
     // 如果编译期间报utdid重复, 所以此时进行如下处理即可, 关闭传递性依赖
     compile('com.taobao.android:alisdk-hotfix:2.0.6') {
         exclude(module: 'utdid4all')
         transitive = false // 防止和 ali httpdns重复导入
     }
+
     //=== ali httpdns (https://github.com/aliyun/alicloud-android-demo)
     compile 'com.aliyun.ams:alicloud-android-httpdns:1.0.10'
+
     //=== hawk (https://github.com/orhanobut/hawk)
     compile 'com.orhanobut:hawk:2.0.1'
+
     //=== AndroidUtilCode  (https://github.com/Blankj/AndroidUtilCode)
     compile 'com.blankj:utilcode:1.3.7'
+
     //=== fastjson (https://github.com/alibaba/fastjson)
     compile 'com.alibaba:fastjson:1.2.31'
+
+    //################## 引用第三方工程
 
 }
