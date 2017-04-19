@@ -96,7 +96,7 @@ android {
             if ("true".equals(IS_JENKINS)) {
                 timeNow = JENKINS_TIME
                 // 使用固定的名字，方便jenkins打包完成后自动上传到服务器
-                outDirectory = 'C:/Users/Administrator/Desktop/jenkins'
+                outDirectory = outDirectory+'/jenkins'
                 // 动态生成安装包名称
 //                newName = 'basemodule-v' +
 //                        APP_VERSION + '-' + variant.productFlavors[0].name + timeNow + '-' + variant.buildType.name + '.apk'
