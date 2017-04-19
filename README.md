@@ -41,7 +41,7 @@ allprojects {
 ### 相关工具类
  - ACache : 本地文件缓存工具类
  - AdViewpagerUtil : 广告轮播viewpager管理
- - 集合操作工具类 : 集合操作工具类
+ - CollectionUtils : 集合操作工具类
  - DialogPermissionUtil : 权限对话框管理
  - DisplayUtil : 屏幕相关的辅助类
  - FormatUtil : 字符串校验
