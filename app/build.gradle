@@ -1,20 +1,56 @@
 apply plugin: 'com.android.application'
 
+def getDate() {
+    def date = new Date()
+    def formattedDate = date.format('yyyyMMddHHmm')
+    return formattedDate
+}
+
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
+
+    signingConfigs {
+        signingConfig {
+            keyAlias 'basemodule'
+            keyPassword 'basemodule'
+            storeFile file('/basemodule.jks')
+            storePassword 'basemodule'
+        }
+    }
+
     defaultConfig {
         applicationId "com.brilliant.module"
         minSdkVersion 19
         targetSdkVersion 25
         versionCode 1
-        versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        versionName APP_VERSION
+        resValue("string", 'app_version', APP_VERSION)
+        buildConfigField "boolean", "LEO_DEBUG", "true"
+        buildConfigField 'String', 'API_SERVER_URL', RELEASE_API_SERVER_URL
+        buildConfigField 'String', 'API_SERVER_URL_MALL', RELEASE_API_SERVER_URL_MALL
+        signingConfig signingConfigs.signingConfig
     }
+
     buildTypes {
         release {
-            minifyEnabled false
+            buildConfigField 'String', 'API_SERVER_URL', RELEASE_API_SERVER_URL
+            buildConfigField 'String', 'API_SERVER_URL_MALL', RELEASE_API_SERVER_URL_MALL
+            buildConfigField 'String', 'IM_SERVER_HOST', RELEASE_IM_SERVER_HOST
+            buildConfigField 'int', 'IM_SERVER_PORT', RELEASE_IM_SERVER_PORT
+            buildConfigField "boolean", "LEO_DEBUG", RELEASE_LEO_DEBUG
+            minifyEnabled true
+            zipAlignEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            buildConfigField 'String', 'API_SERVER_URL', RELEASE_API_SERVER_URL
+            buildConfigField 'String', 'API_SERVER_URL_MALL', RELEASE_API_SERVER_URL_MALL
+            buildConfigField 'String', 'IM_SERVER_HOST', RELEASE_IM_SERVER_HOST
+            buildConfigField 'int', 'IM_SERVER_PORT', RELEASE_IM_SERVER_PORT
+            buildConfigField "boolean", "LEO_DEBUG", RELEASE_LEO_DEBUG
         }
     }
 
@@ -23,11 +59,62 @@ android {
         resolutionStrategy.force 'com.google.code.findbugs:jsr305:1.3.9'
     }
 
-//    // 解决 is not translated in "zh" ，防止自动打包失败
-//    lintOptions {
-//        checkReleaseBuilds false
-//        abortOnError false
-//    }
+    dexOptions {
+        javaMaxHeapSize "2g"
+    }
+
+    // 解决 is not translated in "zh" ，防止自动打包失败
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    //渠道Flavors
+    productFlavors {
+        qq {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "qq"]
+        }
+        zhushou91 {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "zhushou91"]
+        }
+    }
+    allprojects {
+        repositories {
+            mavenCentral()
+            maven { url "https://jitpack.io" }
+        }
+    }
+
+    //修改生成的apk名字
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def newName
+            def timeNow
+            def oldFile = output.outputFile
+            def outDirectory = oldFile.parent
+
+            if ("true".equals(IS_JENKINS)) {
+                timeNow = JENKINS_TIME
+                // 使用相对路径，构建后执行的 Execute Windows batch command 脚本为：
+                // curl -F "envType=1" -F "prodType=1001" -F "package=@E:\jenkins\workspace\AndroidFilePicker\app\build\outputs\apk\jenkins\filepicker.apk" https://172.16.88.230:8383/apiv1/app/upload --insecure
+                outDirectory = outDirectory + '/jenkins'
+                // 动态生成安装包名称
+//                newName = 'basemodule-v' +
+//                        APP_VERSION + '-' + variant.productFlavors[0].name + timeNow + '-' + variant.buildType.name + '.apk'
+                // 使用固定的名字，方便jenkins打包完成后自动上传到服务器
+                newName = 'basemodule.apk'
+            } else {
+                timeNow = getDate()
+                if (variant.buildType.name.equals('debug')) {
+                    newName = "basemodule-v${APP_VERSION}-debug.apk"
+                } else {
+                    newName = 'basemodule-v' +
+                            APP_VERSION + '-' + variant.productFlavors[0].name + timeNow + '-' + variant.buildType.name + '.apk'
+                }
+            }
+            output.outputFile = new File(outDirectory, newName)
+        }
+    }
 }
 
 dependencies {
