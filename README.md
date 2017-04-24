@@ -39,9 +39,9 @@ allprojects {
 	    }
 	
 ### 相关工具类
- - ACache : 本地文件缓存工具类
- - AdViewpagerUtil : 广告轮播viewpager管理
+ 
  - CollectionUtils : 集合操作工具类
+   - isNullOrEmpty : 是否为空
  - DialogPermissionUtil : 权限对话框管理
    - PermissionDialog : 弹出需要权限的提示对话框
    - startSettingIntent : 启动授权界面
@@ -74,8 +74,6 @@ allprojects {
    - GetAreaCode : 设置地区编码
    - isDataFormat : 验证日期字符串是否是YYYY-MM-DD格式
    - checkValue : 空值null返回"",防止脏数据奔溃
- - GlideCircleTransfromUtil : glide转圆形图片
- - GlideRoundTransformUtil : glide转圆角图片
  - ImageLoaderUtils : 图片加载工具类 使用glide框架封装
    - display : 显示图片 默认设置
    - display : 显示图片 有占位图和错误显示图
@@ -136,6 +134,10 @@ allprojects {
    - forName : 初始化类
  - ViewHolderUtil : 获取view
    - get : 获取控件
+ - ACache : 本地文件缓存工具类
+ - AdViewpagerUtil : 广告轮播viewpager管理
+ - GlideCircleTransfromUtil : glide转圆形图片
+ - GlideRoundTransformUtil : glide转圆角图片
 	       
 ### 详细介绍
 
