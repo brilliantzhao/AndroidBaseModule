@@ -38,6 +38,10 @@ allprojects {
 	        compile 'com.github.BrillantZhao:AndroidBaseModule:1.1.2.23'
 	    }
 	
+### 项目结构
+![Alt text](https://github.com/yuanzaiyuanfang/AndroidBaseModule/raw/master/images/xiangmujiegou.png)
+
+	
 ### 相关工具类
  
  - CollectionUtils : 集合操作工具类
