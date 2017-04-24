@@ -35,7 +35,7 @@ allprojects {
 ##### Step 2. Add the dependency
 
     dependencies {
-	        compile 'com.github.BrillantZhao:AndroidBaseModule:1.0.3'
+	        compile 'com.github.BrillantZhao:AndroidBaseModule:1.1.2.23'
 	    }
 	
 ### 相关工具类
