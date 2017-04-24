@@ -75,20 +75,67 @@ allprojects {
    - isDataFormat : 验证日期字符串是否是YYYY-MM-DD格式
    - checkValue : 空值null返回"",防止脏数据奔溃
  - GlideCircleTransfromUtil : glide转圆形图片
- - GlideRoundTransformUtil : glide转换圆角图片
+ - GlideRoundTransformUtil : glide转圆角图片
  - ImageLoaderUtils : 图片加载工具类 使用glide框架封装
+   - display : 显示图片 默认设置
+   - display : 显示图片 有占位图和错误显示图
+   - displaySmallPhoto : 显示缩略小图
+   - displayBigPhoto : 显示高清大图
+   - displayBigPhotoWithoutPlaceHolder : 显示大图 没有占位图
+   - displayRound : 显示圆图
  - IpUtils : ip管理
+   - GetHostIp : 获取ip
  - JsonUtils : JSON解析二次封装
+   - toJson : 将对象转为JSON串，此方法能够满足大部分需求
+   - fromJson : 将JSON串转为对象
+   - getValue : 获取json中的某个string值
+   - getListValue : 获取json中的list值
+   - getDoubleValue : 获取json中的某个double值
+   - getIntValue : 获取json中的某个int值
  - KeyBordUtil : 输入框弹出管理
+   - popSoftKeyboard : 显示和隐藏软键盘
+   - showSoftKeyboard : 显示软键盘
+   - hideSoftKeyboard : 隐藏软键盘
  - ListUtils : 集合操作
+   - getSize : 获取集合大小
+   - isEmpty : 是否为空
+   - join : 加入集合
+   - addDistinctEntry : 加入对象
+   - addDistinctList : 加入集合
+   - distinctList : 去除重复个数
+   - addListNotNullValue : 集合不为空时,加入制指定值
+   - invertList : 逆序
  - MeasureUtils : 尺寸转换
+   - dp2px : dp转px
+   - sp2px : sp转px
+   - getMeasuredWidthWithMargins : 测量带边距的宽度
+   - getDisplayMetrics : 获取频幕参数
+   - getViewLocation : 获取控件位置
  - NativeUtil : app相关信息,下载安装等
+   - getPackageInfo : 获取App安装包信息 
+   - isEmpty : 判断给定字符串是否空白串
  - NetWorkUtils : 网络管理工具
+   - isNetConnected : 检查网络是否可用
+   - isWifiConnected : 检测wifi是否连接
+   - is3gConnected : 检测3G是否连接
+   - isLinkAvailable : 判断网址是否有效
  - SDCardUtils : SD卡工具箱
+   - getState : 获取SD卡的状态
+   - isAvailable : SD卡是否可用
+   - getRootDirectory : 获取SD卡的根目录
+   - getRootPath : 获取SD卡的根路径
+   - getSDPath : 获取sd卡路径
+   - getFreeSpaceBytes : 获取空闲的空间大小
  - TimeUtil : 日期处理类
- - ToastUitl : Toast统一管理类
+   - formatData : 时间戳转特定格式时间
+   - getDateByFormat :String类型的日期时间转化为Date类型
+   - getDateByOffset : 获取偏移之后的Date
+   - 。。。
  - TUtil : 类转换初始化
+   - getT : 获取泛型类型
+   - forName : 初始化类
  - ViewHolderUtil : 获取view
+   - get : 获取控件
 	       
 ### 详细介绍
 

@@ -16,6 +16,14 @@ import java.io.File;
  */
 public class ImageLoaderUtils {
 
+    /**
+     * @param context
+     * @param imageView
+     * @param url
+     * @param placeholder
+     * @param error
+     * 显示图片 默认设置
+     */
     public static void display(Context context, ImageView imageView, String url, int placeholder, int error) {
         if (imageView == null) {
             throw new IllegalArgumentException("argument error");
@@ -24,6 +32,12 @@ public class ImageLoaderUtils {
                 .error(error).crossFade().into(imageView);
     }
 
+    /**
+     * @param context
+     * @param imageView
+     * @param url
+     * 显示图片 有占位图和错误显示图
+     */
     public static void display(Context context, ImageView imageView, String url) {
         if (imageView == null) {
             throw new IllegalArgumentException("argument error");
@@ -48,6 +62,12 @@ public class ImageLoaderUtils {
                 .crossFade().into(imageView);
     }
 
+    /**
+     * @param context
+     * @param imageView
+     * @param url
+     * 显示缩略小图
+     */
     public static void displaySmallPhoto(Context context, ImageView imageView, String url) {
         if (imageView == null) {
             throw new IllegalArgumentException("argument error");
@@ -60,6 +80,12 @@ public class ImageLoaderUtils {
                 .into(imageView);
     }
 
+    /**
+     * @param context
+     * @param imageView
+     * @param url
+     * 显示高清大图
+     */
     public static void displayBigPhoto(Context context, ImageView imageView, String url) {
         if (imageView == null) {
             throw new IllegalArgumentException("argument error");
@@ -72,6 +98,12 @@ public class ImageLoaderUtils {
                 .into(imageView);
     }
 
+    /**
+     * @param context
+     * @param imageView
+     * @param url
+     * 显示大图 没有占位图
+     */
     public static void displayBigPhotoWithoutPlaceHolder(Context context, ImageView imageView, String url) {
         if (imageView == null) {
             throw new IllegalArgumentException("argument error");
@@ -94,6 +126,13 @@ public class ImageLoaderUtils {
                 .crossFade().into(imageView);
     }
 
+
+    /**
+     * @param context
+     * @param imageView
+     * @param url
+     * 显示圆图
+     */
     public static void displayRound(Context context, ImageView imageView, String url) {
         if (imageView == null) {
             throw new IllegalArgumentException("argument error");
