@@ -74,7 +74,7 @@ public class JsonUtils {
     }
 
     /**
-     * 获取json中的某个值
+     * 获取json中的某个string值
      *
      * @param json
      * @param key
@@ -106,6 +106,12 @@ public class JsonUtils {
         return null;
     }
 
+    /**
+     * 获取json中的某个double值
+     * @param json
+     * @param key
+     * @return
+     */
     public static Double getDoubleValue(String json, String key) {
         try {
             JSONObject object = new JSONObject(json);
@@ -115,6 +121,13 @@ public class JsonUtils {
         }
         return null;
     }
+
+    /**
+     * 获取json中的某个int值
+     * @param json
+     * @param key
+     * @return
+     */
     public static int getIntValue(String json, String key) {
         try {
             JSONObject object = new JSONObject(json);

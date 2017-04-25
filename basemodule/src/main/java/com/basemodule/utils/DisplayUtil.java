@@ -218,7 +218,6 @@ public class DisplayUtil {
 	
 	/**
 	 * 获取当前屏幕截图，包含状态栏（这个方法没测试通过）
-	 * 
 	 * @param activity
 	 * @return Bitmap
 	 */
@@ -237,7 +236,6 @@ public class DisplayUtil {
 
 	/**
 	 * 获取当前屏幕截图，不包含状态栏（这个方法没测试通过）
-	 * 
 	 * @param activity
 	 * @return Bitmap
 	 */

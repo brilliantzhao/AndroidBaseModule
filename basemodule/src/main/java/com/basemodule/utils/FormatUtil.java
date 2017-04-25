@@ -15,6 +15,8 @@ import java.util.regex.Pattern;
 public class FormatUtil {
     /**
      * 验证手机格式
+     * @param mobiles
+     * @return
      */
     public static boolean isMobileNO(String mobiles) {
 		/*
@@ -57,6 +59,8 @@ public class FormatUtil {
 
     /**
      * 判断身份证格式
+     * @param idNum
+     * @return
      */
     public static boolean isIdCardNo(String idNum){
         //定义判别用户身份证号的正则表达式（要么是15位或18位，最后一位可以为字母）
@@ -121,6 +125,11 @@ public class FormatUtil {
         return cardId.charAt(cardId.length() - 1) == bit;
     }
 
+    /**
+     *
+     * @param nonCheckCodeCardId
+     * @return
+     */
     private static char getBankCardCheckCode(String nonCheckCodeCardId) {
         if (nonCheckCodeCardId == null
                 || nonCheckCodeCardId.trim().length() == 0
@@ -144,8 +153,7 @@ public class FormatUtil {
     /**
      * 功能：身份证的有效验证
      *
-     * @param IDStr
-     *            身份证号
+     * @param IDStr 身份证号
      * @return 有效：返回"" 无效：返回String信息
      * @throws ParseException
      */
@@ -299,7 +307,6 @@ public class FormatUtil {
 
     /**
      * 验证日期字符串是否是YYYY-MM-DD格式
-     *
      * @param str
      * @return
      */
@@ -318,6 +325,8 @@ public class FormatUtil {
 
     /**
      * 空值null返回"",防止脏数据奔溃
+     * @param str
+     * @return
      */
     public static String checkValue(String str) {
         return TextUtils.isEmpty(str)?"":str;
