@@ -41,7 +41,44 @@ allprojects {
 ### 项目结构
 ![Alt text](https://github.com/yuanzaiyuanfang/AndroidBaseModule/raw/master/images/xiangmujiegou.png)
 
-	
+### 用到的第三方库
+- [Android-SpinKit](https://github.com/ybq/Android-SpinKit)
+：加载中动画
+- [retrofit](https://github.com/square/retrofit)
+：网络访问
+- [RxJava](https://github.com/ReactiveX/RxJava)
+：一个实现异步操作的库
+- [RxAndroid](https://github.com/ReactiveX/RxAndroid)
+：用于Android的Rxjava绑定库
+- [RxLifecycle](https://github.com/trello/RxLifecycle)
+：防止RxJava中subscription导致内存泄漏
+- [FlycoTabLayout](https://github.com/H07000223/FlycoTabLayout)
+：TabLayout库,各种效果
+- [logger](https://github.com/orhanobut/logger)
+：Log库，让打印的Log变得非常漂亮
+- [glide](https://github.com/bumptech/glide)
+：图片加载库
+- [FloatingActionButton](https://github.com/Clans/FloatingActionButton)
+：悬浮按钮
+- [UpdateFun](https://github.com/hugeterry/UpdateDemo)
+：更新下载模块
+- [SystemBarTint](https://github.com/jgilfelt/SystemBarTint)
+：沉浸式状态栏
+- [butterknife](https://github.com/JakeWharton/butterknife)
+：帮助Android控件和回调进行依赖注入
+- [OkGo](https://github.com/jeasonlzy/okhttp-OkGo)
+：让网络请求更简单
+- [hotfix](http://baichuan.taobao.com/product/hotfix.htm)
+：阿里的APP热修复服务方案
+- [httpdns](https://github.com/aliyun/alicloud-android-demo)
+：阿里云的HTTPDNS服务器进行域名解析
+- [hawk](https://github.com/orhanobut/hawk)
+：一个非常便捷的数据库，操作数据库只需一行代码，能存任何数据类型 
+- [AndroidUtilCode](https://github.com/Blankj/AndroidUtilCode)
+：各种工具类
+- [fastjson](https://github.com/alibaba/fastjson)
+：阿里的json解析库
+
 ### 相关工具类
  
  - CollectionUtils : 集合操作工具类
