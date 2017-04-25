@@ -4,11 +4,10 @@ android base module project
 
 ### 使用方式
 
-1) 新工程建议直接下载[AndroidBaseModule](https://github.com/BrillantZhao/AndroidMouldProject)，修改包名后在此基础上开发；
+1) 新工程建议直接下载[AndroidMouldProject](https://github.com/BrillantZhao/AndroidMouldProject)，修改包名后在此基础上开发；
     
-2) Add Library module as a dependency in your build.gradle file.
-
 or
+2) Add Library module as a dependency in your build.gradle file.
 
 ##### Step 1. Add the JitPack repository to your build file .Add it in your root build.gradle at the end of repositories:
 ```xml
@@ -177,7 +176,7 @@ allprojects {
 	       
 ### 详细介绍
 
-参见 AndroidBaseModule，工程地址为：https://github.com/BrillantZhao/AndroidMouldProject
+参见 AndroidMouldProject，工程地址为：https://github.com/BrillantZhao/AndroidMouldProject
 
 
 ###License
