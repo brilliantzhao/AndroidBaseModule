@@ -14,7 +14,7 @@ android {
         signingConfig {
             keyAlias 'basemodule'
             keyPassword 'basemodule'
-            storeFile file('/basemodule.jks')
+            storeFile file('../basemodule.jks')
             storePassword 'basemodule'
         }
     }
