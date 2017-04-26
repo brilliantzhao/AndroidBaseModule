@@ -115,6 +115,14 @@ public class OkGoRequest {
                 .params(map);
     }
 
+    /**
+     * 请求图片 get方式
+     *
+     * @param context
+     * @param url
+     * @param map
+     * @return
+     */
     public static GetRequest bitmapRequestWithGet(Context context, String url, HashMap<String, String> map) {
         return OkGo.get(url)
                 .tag(context)//以对应activity或fragment作为网络请求tag，以便即时取消网络请求
