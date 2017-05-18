@@ -1,0 +1,46 @@
+def supportVersion = "25.3.0"
+def butterKnifeVersion = "8.5.1"
+def rxjavaVersion = "1.1.9"
+def rxandroidVersion = "1.2.1"
+def utilcodeVersion = "1.5.1"
+
+project.ext {
+    android = [
+            compileSdkVersion: 25,
+            buildToolsVersion: "25.0.2",
+            applicationId    : "com.brilliant.module",
+            minSdkVersion    : 19,
+            targetSdkVersion : 25,
+            versionCode      : 1,
+            versionName      : "1.0"
+    ]
+
+    dependencies = [
+            //=== android-support
+            "support-v4"                     : "com.android.support:support-v4:${supportVersion}",
+            "appcompat-v7"                   : "com.android.support:appcompat-v7:${supportVersion}",
+            "design"                         : "com.android.support:design:${supportVersion}",
+            "recyclerview-v7"                : "com.android.support:recyclerview-v7:${supportVersion}",
+            "cardview-v7"                    : "com.android.support:cardview-v7:${supportVersion}",
+            "constraint-layout"              : "com.android.support.constraint:constraint-layout:1.0.0-alpha9",
+
+            //=== test
+            "junit"                          : "junit:junit:4.12",
+
+            //=== java8-support
+            "stream"                         : "com.annimon:stream:1.0.8",
+
+            //=== butterKnife (https://github.com/JakeWharton/butterknife)
+            "butterknife"                    : "com.jakewharton:butterknife:${butterKnifeVersion}",
+            "butterknife-compiler"           : "com.jakewharton:butterknife-compiler:${butterKnifeVersion}",
+
+            //=== rxjava(https://github.com/ReactiveX/RxJava)
+            "rxjava"                         : "io.reactivex:rxjava:${rxjavaVersion}",
+
+            //=== rxandroid(https://github.com/ReactiveX/RxAndroid)
+            "rxandroid"                      : "io.reactivex:rxandroid:${rxandroidVersion}",
+
+            //=== AndroidUtilCode  (https://github.com/Blankj/AndroidUtilCode)
+            "utilcode"                      : "com.blankj:utilcode:${utilcodeVersion}"
+    ]
+}

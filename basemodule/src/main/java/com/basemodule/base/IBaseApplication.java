@@ -1,6 +1,5 @@
 package com.basemodule.base;
 
-import android.app.Application;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.pm.PackageInfo;
@@ -8,6 +7,7 @@ import android.content.res.Resources;
 import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 
+import com.basemodule.baseapp.AppException;
 import com.basemodule.utils.NativeUtil;
 import com.blankj.utilcode.util.CrashUtils;
 import com.blankj.utilcode.util.Utils;
@@ -74,6 +74,15 @@ public class IBaseApplication extends MultiDexApplication {
         MultiDex.install(this);
     }
 
+    /**
+     * 注册App异常崩溃处理器
+     *
+     * @param exceptionLogAdd 异常日志的存放的地址，如：/BaseModule/Log/
+     */
+    private void registerUncaughtExceptionHandler(String exceptionLogAdd) {
+        Thread.setDefaultUncaughtExceptionHandler(AppException.getAppExceptionHandler(exceptionLogAdd));
+    }
+
     //#################################################################### 自定义方法 end
 
     //#################################################################### getter and setter start
@@ -97,7 +106,13 @@ public class IBaseApplication extends MultiDexApplication {
         IBaseApplication.packageInfo = packageInfo;
     }
 
-    public static Application getAppInstance() {
+    /**
+     * @return
+     */
+    public static synchronized IBaseApplication getAppInstance() {
+        if (appInstance == null) {
+            appInstance = new IBaseApplication();
+        }
         return appInstance;
     }
 

@@ -7,8 +7,8 @@ def getDate() {
 }
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    buildToolsVersion rootProject.ext.android["buildToolsVersion"]
 
     signingConfigs {
         key {
@@ -20,10 +20,10 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.brilliant.module"
-        minSdkVersion 19
-        targetSdkVersion 25
-        versionCode 1
+        applicationId rootProject.ext.android["applicationId"]
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionCode rootProject.ext.android["versionCode"]
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         versionName APP_VERSION
         resValue("string", 'app_version', APP_VERSION)
@@ -116,14 +116,14 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    testCompile 'junit:junit:4.12'
+    testCompile rootProject.ext.dependencies["junit"]
 
     //################## 引入第三方jar包
 
     //################## git上第三方库
-    //=== Butter Knife  (https://github.com/JakeWharton/butterknife)
-    compile 'com.jakewharton:butterknife:8.5.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    //=== Butter Knife
+    compile rootProject.ext.dependencies["butterknife"]
+    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
 
     //################## 引用第三方工程
     compile project(':basemodule')

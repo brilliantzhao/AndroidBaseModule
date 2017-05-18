@@ -1,14 +1,19 @@
 package com.basemodule.base;
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.basemodule.R;
 import com.basemodule.baseapp.AppManager;
 import com.basemodule.baserx.RxManager;
 import com.basemodule.utils.TUtil;
 import com.basemodule.widget.StatusBarCompat;
+import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.trello.rxlifecycle.LifecycleTransformer;
 import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
 
@@ -63,7 +68,6 @@ public abstract class IBaseActivity<T extends IBasePresenter, E extends IBaseMod
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mRxManager = new RxManager();
-        doBeforeSetcontentView();
         setContentView(getLayoutId());
         ButterKnife.bind(this);
         mContext = this;
@@ -75,16 +79,12 @@ public abstract class IBaseActivity<T extends IBasePresenter, E extends IBaseMod
         this.initPresenter();
         this.initView();
         this.initData();
-    }
-
-    /**
-     * 设置layout前配置
-     */
-    private void doBeforeSetcontentView() {
-        // 把actvity放到application栈中管理
+        // 添加Activity到堆栈
         AppManager.getAppManager().addActivity(this);
+        // 修改状态栏颜色，4.4+生效
+        setStatusBarColor2(R.color.main_color);
         // 默认着色状态栏
-        SetStatusBarColor();
+        setStatusBarColor(R.color.main_color);
     }
 
     /*********************子类实现*****************************/
@@ -101,24 +101,47 @@ public abstract class IBaseActivity<T extends IBasePresenter, E extends IBaseMod
     public abstract void initData();
 
     /**
-     * 着色状态栏（5.0以上系统有效）
-     */
-    protected void SetStatusBarColor() {
-        StatusBarCompat.setStatusBarColor(this, ContextCompat.getColor(this, R.color.main_color));
-    }
-
-    /**
-     * 着色状态栏（5.0以上系统有效）
-     */
-    protected void SetStatusBarColor(int color) {
-        StatusBarCompat.setStatusBarColor(this, color);
-    }
-
-    /**
      * 沉浸状态栏（4.4以上系统有效）
      */
-    protected void SetTranslanteBar() {
+    protected void setTranslanteBar() {
         StatusBarCompat.translucentStatusBar(this);
+    }
+
+    /**
+     * 着色状态栏（5.0以上系统有效）
+     */
+    protected void setStatusBarColor(int color) {
+        StatusBarCompat.setStatusBarColor(this, ContextCompat.getColor(this, color));
+    }
+
+    /**
+     * 修改状态栏颜色，4.4+生效
+     */
+    @TargetApi(19)
+    protected void setTranslucentStatus() {
+        Window window = getWindow();
+        // Translucent status bar
+        window.setFlags(
+                WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
+                WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        // Translucent navigation bar
+//        window.setFlags(
+//                WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION,
+//                WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+    }
+
+    /**
+     * 修改状态栏颜色，4.4+生效
+     *
+     * @param color
+     */
+    protected void setStatusBarColor2(int color) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            setTranslucentStatus();
+        }
+        SystemBarTintManager tintManager = new SystemBarTintManager(this);
+        tintManager.setStatusBarTintEnabled(true);
+        tintManager.setStatusBarTintResource(color);//通知栏所需颜色
     }
 
     @Override
@@ -134,10 +157,13 @@ public abstract class IBaseActivity<T extends IBasePresenter, E extends IBaseMod
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (mPresenter != null)
+        if (mPresenter != null) {
             mPresenter.onDestroy();
+        }
         mRxManager.clear();
+        // 结束Activity从堆栈中移除
         AppManager.getAppManager().finishActivity(this);
+
     }
 
     @Override
