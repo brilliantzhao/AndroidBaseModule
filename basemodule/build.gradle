@@ -45,55 +45,39 @@ dependencies {
 
     //################## git上第三方库
 
-    //===SpinKit(https://github.com/ybq/Android-SpinKit)
-    compile 'com.github.ybq:Android-SpinKit:1.1.0'
-
     //=== rxjava
     compile rootProject.ext.dependencies["rxjava"]
     //=== rxandroid
     compile rootProject.ext.dependencies["rxandroid"]
 
     //=== RxLifecycle  (https://github.com/trello/RxLifecycle)
-    compile 'com.trello:rxlifecycle:1.0'
-    // If you want to bind to Android-specific lifecycles
-    compile 'com.trello:rxlifecycle-android:1.0'
-    // If you want pre-written Activities and Fragments you can subclass as providers
-    compile 'com.trello:rxlifecycle-components:1.0'
-    // If you want to use Navi for providers
-    compile 'com.trello:rxlifecycle-navi:1.0'
-    // If you want to use Kotlin syntax
-    compile 'com.trello:rxlifecycle-kotlin:1.0'
-
-    //===  FlycoTabLayout  (https://github.com/H07000223/FlycoTabLayout)
-    compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.0.8@aar'
+    compile rootProject.ext.dependencies["rxlifecycle"]
+    compile rootProject.ext.dependencies["rxlifecycle-android"]
+    compile rootProject.ext.dependencies["rxlifecycle-components"]
+    compile rootProject.ext.dependencies["rxlifecycle-navi"]
+    compile rootProject.ext.dependencies["rxlifecycle-kotlin"]
 
     //=== logger (https://github.com/orhanobut/logger)
-    compile 'com.orhanobut:logger:1.13'
+    compile rootProject.ext.dependencies["logger"]
 
     //=== glide (https://github.com/bumptech/glide)
-    compile 'com.github.bumptech.glide:glide:3.6.1'
-
-    //=== FloatingActionButton (https://github.com/Clans/FloatingActionButton)
-    compile 'com.github.clans:fab:1.6.4'
-
-    //=== UpdateFun (https://github.com/hugeterry/UpdateDemo)
-    compile 'cn.hugeterry.updatefun:updatefun:1.8.6'
+    compile rootProject.ext.dependencies["glide"]
 
     //=== SystemBarTint(https://github.com/jgilfelt/SystemBarTint)
-    compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
+    compile rootProject.ext.dependencies["systembartint"]
 
     //=== Butter Knife
     compile rootProject.ext.dependencies["butterknife"]
     annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
 
     //=== hawk (https://github.com/orhanobut/hawk)
-    compile 'com.orhanobut:hawk:2.0.1'
+    compile rootProject.ext.dependencies["hawk"]
 
     //=== AndroidUtilCode  (https://github.com/Blankj/AndroidUtilCode)
     compile rootProject.ext.dependencies["utilcode"]
 
     //=== fastjson (https://github.com/alibaba/fastjson)
-    compile 'com.alibaba:fastjson:1.2.31'
+    compile rootProject.ext.dependencies["fastjson"]
 
     //################## 引用第三方工程
 

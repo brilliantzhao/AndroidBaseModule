@@ -4,7 +4,6 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -12,7 +11,6 @@ import com.basemodule.R;
 import com.basemodule.baseapp.AppManager;
 import com.basemodule.baserx.RxManager;
 import com.basemodule.utils.TUtil;
-import com.basemodule.widget.StatusBarCompat;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.trello.rxlifecycle.LifecycleTransformer;
 import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
@@ -83,8 +81,6 @@ public abstract class IBaseActivity<T extends IBasePresenter, E extends IBaseMod
         AppManager.getAppManager().addActivity(this);
         // 修改状态栏颜色，4.4+生效
         setStatusBarColor2(R.color.main_color);
-        // 默认着色状态栏
-        setStatusBarColor(R.color.main_color);
     }
 
     /*********************子类实现*****************************/
@@ -99,20 +95,6 @@ public abstract class IBaseActivity<T extends IBasePresenter, E extends IBaseMod
 
     //初始化data数据
     public abstract void initData();
-
-    /**
-     * 沉浸状态栏（4.4以上系统有效）
-     */
-    protected void setTranslanteBar() {
-        StatusBarCompat.translucentStatusBar(this);
-    }
-
-    /**
-     * 着色状态栏（5.0以上系统有效）
-     */
-    protected void setStatusBarColor(int color) {
-        StatusBarCompat.setStatusBarColor(this, ContextCompat.getColor(this, color));
-    }
 
     /**
      * 修改状态栏颜色，4.4+生效

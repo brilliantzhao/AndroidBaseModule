@@ -10,175 +10,101 @@ or
 
 2) Add Library module as a dependency in your build.gradle file.
 
-##### Step 1. Add the JitPack repository to your build file .Add it in your root build.gradle at the end of repositories:
-```xml
-allprojects {
-    repositories {
-		...
-		maven { url 'https://jitpack.io' }
-		// hotfix(项目中使用了阿里的hotfix热修复技术，此处需要引入)
-        maven {
-        url "http://repo.baichuan-android.taobao.com/content/groups/BaichuanRepositories"
-        }
-        // ali httpdns(项目中使用了阿里的dns域名解析，此处需要引入)
-        maven {
-        url 'http://maven.aliyun.com/nexus/content/repositories/releases/'
-        }			
-	    }
-	}
-```
-##### Step 2. Add the dependency
+##### Add the dependency
 
     dependencies {
-	        compile 'com.github.BrillantZhao:AndroidBaseModule:1.1.2.23'
+	        compile 'com.github.BrillantZhao:AndroidBaseModule:1.1.2.32'
 	    }
 	
 ### 项目结构
 ![Alt text](https://github.com/yuanzaiyuanfang/AndroidBaseModule/raw/master/images/xiangmujiegou.png)
 
 ### 用到的第三方库
-- [Android-SpinKit](https://github.com/ybq/Android-SpinKit)
-：加载中动画
-- [retrofit](https://github.com/square/retrofit)
-：网络访问
-- [RxJava](https://github.com/ReactiveX/RxJava)
-：一个实现异步操作的库
-- [RxAndroid](https://github.com/ReactiveX/RxAndroid)
-：用于Android的Rxjava绑定库
-- [RxLifecycle](https://github.com/trello/RxLifecycle)
-：防止RxJava中subscription导致内存泄漏
-- [FlycoTabLayout](https://github.com/H07000223/FlycoTabLayout)
-：TabLayout库,各种效果
-- [logger](https://github.com/orhanobut/logger)
-：Log库，让打印的Log变得非常漂亮
-- [glide](https://github.com/bumptech/glide)
-：图片加载库
-- [FloatingActionButton](https://github.com/Clans/FloatingActionButton)
-：悬浮按钮
-- [UpdateFun](https://github.com/hugeterry/UpdateDemo)
-：更新下载模块
-- [SystemBarTint](https://github.com/jgilfelt/SystemBarTint)
-：沉浸式状态栏
-- [butterknife](https://github.com/JakeWharton/butterknife)
-：帮助Android控件和回调进行依赖注入
-- [OkGo](https://github.com/jeasonlzy/okhttp-OkGo)
-：让网络请求更简单
-- [hotfix](http://baichuan.taobao.com/product/hotfix.htm)
-：阿里的APP热修复服务方案
-- [httpdns](https://github.com/aliyun/alicloud-android-demo)
-：阿里云的HTTPDNS服务器进行域名解析
-- [hawk](https://github.com/orhanobut/hawk)
-：一个非常便捷的数据库，操作数据库只需一行代码，能存任何数据类型 
-- [AndroidUtilCode](https://github.com/Blankj/AndroidUtilCode)
-：各种工具类
-- [fastjson](https://github.com/alibaba/fastjson)
-：阿里的json解析库
 
-### 相关工具类
- 
- - CollectionUtils : 集合操作工具类
-   - isNullOrEmpty : 是否为空
- - DialogPermissionUtil : 权限对话框管理
-   - PermissionDialog : 弹出需要权限的提示对话框
-   - startSettingIntent : 启动授权界面
- - DisplayUtil : 屏幕相关的辅助类
-   - px2dip : 将px值转换为dip或dp值，保证尺寸大小不变
-   - dip2px : 将dip或dp值转换为px值，保证尺寸大小不变
-   - px2sp : 将px值转换为sp值，保证文字大小不变
-   - sp2px : 将sp值转换为px值，保证文字大小不变
-   - getWidgetWH : 直接获取控件的宽、高
-   - getViewHeight : 直接获取控件的高
-   - getViewWidth : 直接获取控件的宽
-   - getScreenWidth : 获得屏幕宽度
-   - getScreenHeight : 获得屏幕高度
-   - getStatusBarHeight : 获得状态栏的高度
-   - getWidgetWidth : 获取控件的宽
-   - getWidgetHeight : 获取控件的高
-   - setWidgetWidth : 设置控件宽  
-   - setWidgetHeight : 设置控件高  
-   - snapShotWithStatusBar : 获取当前屏幕截图，包含状态栏 
-   - snapShotWithoutStatusBar : 获取当前屏幕截图，不包含状态栏  
- - FormatUtil : 字符串校验
-   - isMobileNO :  验证手机格式
-   - isEmail :  判断email格式是否正确
-   - isNumeric :  判断是否全是数字
-   - isIdCardNo :  判断身份证格式
-   - isChinese :  判定输入汉字
-   - checkNameChese :  检测String是否全是中文
-   - checkBankCard :  判断是否是银行卡号
-   - IDCardValidate : 身份证的有效验证
-   - GetAreaCode : 设置地区编码
-   - isDataFormat : 验证日期字符串是否是YYYY-MM-DD格式
-   - checkValue : 空值null返回"",防止脏数据奔溃
- - ImageLoaderUtils : 图片加载工具类 使用glide框架封装
-   - display : 显示图片 默认设置
-   - display : 显示图片 有占位图和错误显示图
-   - displaySmallPhoto : 显示缩略小图
-   - displayBigPhoto : 显示高清大图
-   - displayBigPhotoWithoutPlaceHolder : 显示大图 没有占位图
-   - displayRound : 显示圆图
- - IpUtils : ip管理
-   - GetHostIp : 获取ip
- - JsonUtils : JSON解析二次封装
-   - toJson : 将对象转为JSON串，此方法能够满足大部分需求
-   - fromJson : 将JSON串转为对象
-   - getValue : 获取json中的某个string值
-   - getListValue : 获取json中的list值
-   - getDoubleValue : 获取json中的某个double值
-   - getIntValue : 获取json中的某个int值
- - KeyBordUtil : 输入框弹出管理
-   - popSoftKeyboard : 显示和隐藏软键盘
-   - showSoftKeyboard : 显示软键盘
-   - hideSoftKeyboard : 隐藏软键盘
- - ListUtils : 集合操作
-   - getSize : 获取集合大小
-   - isEmpty : 是否为空
-   - join : 加入集合
-   - addDistinctEntry : 加入对象
-   - addDistinctList : 加入集合
-   - distinctList : 去除重复个数
-   - addListNotNullValue : 集合不为空时,加入制指定值
-   - invertList : 逆序
- - MeasureUtils : 尺寸转换
-   - dp2px : dp转px
-   - sp2px : sp转px
-   - getMeasuredWidthWithMargins : 测量带边距的宽度
-   - getDisplayMetrics : 获取频幕参数
-   - getViewLocation : 获取控件位置
- - NativeUtil : app相关信息,下载安装等
-   - getPackageInfo : 获取App安装包信息 
-   - isEmpty : 判断给定字符串是否空白串
- - NetWorkUtils : 网络管理工具
-   - isNetConnected : 检查网络是否可用
-   - isWifiConnected : 检测wifi是否连接
-   - is3gConnected : 检测3G是否连接
-   - isLinkAvailable : 判断网址是否有效
- - SDCardUtils : SD卡工具箱
-   - getState : 获取SD卡的状态
-   - isAvailable : SD卡是否可用
-   - getRootDirectory : 获取SD卡的根目录
-   - getRootPath : 获取SD卡的根路径
-   - getSDPath : 获取sd卡路径
-   - getFreeSpaceBytes : 获取空闲的空间大小
- - TimeUtil : 日期处理类
-   - formatData : 时间戳转特定格式时间
-   - getDateByFormat :String类型的日期时间转化为Date类型
-   - getDateByOffset : 获取偏移之后的Date
-   - 。。。
- - TUtil : 类转换初始化
-   - getT : 获取泛型类型
-   - forName : 初始化类
- - ViewHolderUtil : 获取view
-   - get : 获取控件
- - ACache : 本地文件缓存工具类
- - AdViewpagerUtil : 广告轮播viewpager管理
- - GlideCircleTransfromUtil : glide转圆形图片
- - GlideRoundTransformUtil : glide转圆角图片
+```xml
+            //=== butterKnife (https://github.com/JakeWharton/butterknife)
+            "butterknife"           : "com.jakewharton:butterknife:${butterKnifeVersion}",
+            "butterknife-compiler"  : "com.jakewharton:butterknife-compiler:${butterKnifeVersion}",
+
+            //=== rxjava(https://github.com/ReactiveX/RxJava)
+            "rxjava"                : "io.reactivex:rxjava:${rxjavaVersion}",
+
+            //=== rxandroid(https://github.com/ReactiveX/RxAndroid)
+            "rxandroid"             : "io.reactivex:rxandroid:${rxandroidVersion}",
+
+            //=== AndroidUtilCode  (https://github.com/Blankj/AndroidUtilCode)
+            "utilcode"              : "com.blankj:utilcode:${utilcodeVersion}",
+
+            //=== RxLifecycle  (https://github.com/trello/RxLifecycle)
+            "rxlifecycle"           : "com.trello:rxlifecycle:${rxlifecycleVersion}",
+            "rxlifecycle-android"   : "com.trello:rxlifecycle-android:${rxlifecycleVersion}",
+            "rxlifecycle-components": "com.trello:rxlifecycle-components:${rxlifecycleVersion}",
+            "rxlifecycle-navi"      : "com.trello:rxlifecycle-navi:${rxlifecycleVersion}",
+            "rxlifecycle-kotlin"    : "com.trello:rxlifecycle-kotlin:${rxlifecycleVersion}",
+
+            //=== logger (https://github.com/orhanobut/logger)
+            "logger"                : "com.orhanobut:logger:${loggerVersion}",
+
+            //=== SystemBarTint(https://github.com/jgilfelt/SystemBarTint)
+            "systembartint"         : "com.readystatesoftware.systembartint:systembartint:${systembartintVersion}",
+
+            //=== glide (https://github.com/bumptech/glide)
+            "glide"                 : "com.github.bumptech.glide:glide:${glideVersion}",
+
+            //=== hawk (https://github.com/orhanobut/hawk)
+            "hawk"                  : "com.orhanobut:hawk:${hawkVersion}",
+
+            //=== fastjson (https://github.com/alibaba/fastjson)
+            "fastjson"              : "com.alibaba:fastjson:${fastjsonVersion}"
+            
+```
+
+## API
+
+* ### base相关→最底层的继承
+```
+IBaseActivity   : 
+IBaseApplication      : 
+IBaseFragment: 
+IBaseFragmentAdapter     : 
+IBaseFragmentStateAdapter   : 
+IBaseModel      : 
+IBasePresenter: 
+IBaseView     : 
+```
+
+* ### baseapp相关→应用的一些基本工具类
+```
+AppException   : 异常记录与处理
+AppManager      : activity管理工具
+BaseRespose: 网络请求基础返回
+```
+
+* ### baserx相关→rx底层处理
+```
+RxBus   : 
+RxCache      : 
+RxHelper: 
+RxManager     : 
+RxSchedulers   : 
+RxSubscriber      : 
+ServerException: 
+```
+
+* ### Activity相关→[ActivityUtils.java][activity.java]→[Demo][activity.demo]
+```
+isActivityExists   : 判断是否存在Activity
+startActivity      : 打开Activity
+getLauncherActivity: 获取入口activity
+getTopActivity     : 获取栈顶Activity
+```
+	       
+	       
 	       
 ### 详细介绍
 
+参见 AndroidBaseModule，工程地址为：https://github.com/BrillantZhao/AndroidBaseModule
 参见 AndroidMouldProject，工程地址为：https://github.com/BrillantZhao/AndroidMouldProject
-
 
 ###License
 >The MIT License (MIT)

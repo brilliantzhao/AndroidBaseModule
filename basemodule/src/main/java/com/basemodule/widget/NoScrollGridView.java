@@ -10,15 +10,19 @@ import android.widget.GridView;
  * on 2016.04.15:04
  */
 public class NoScrollGridView extends GridView {
+
     public NoScrollGridView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
+
     public NoScrollGridView(Context context) {
         super(context);
     }
+
     public NoScrollGridView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
+
     @Override
     public void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         int expandSpec = MeasureSpec.makeMeasureSpec(

@@ -33,6 +33,7 @@ public class IBaseFragmentStateAdapter extends FragmentStatePagerAdapter {
         this.mTitles = mTitles;
         this.fragmentList = fragmentList;
     }
+
     @Override
     public CharSequence getPageTitle(int position) {
         return !CollectionUtils.isNullOrEmpty(mTitles) ? mTitles.get(position) : "";
