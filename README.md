@@ -132,7 +132,6 @@ or
         NoScrollListview       : "",
         OnDoubleClickListener  : "",
         OnNoDoubleClickListener: "",
-        SimpleButton           : "",
 ```
 	       
 ### 详细介绍

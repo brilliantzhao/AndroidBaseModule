@@ -21,6 +21,7 @@ import java.util.Locale;
  */
 @SuppressWarnings("all")
 public class TimeUtil {
+
     /**
      * one day millisecond count
      */

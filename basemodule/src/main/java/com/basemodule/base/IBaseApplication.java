@@ -8,6 +8,7 @@ import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 
 import com.basemodule.baseapp.AppException;
+import com.basemodule.utils.NativeUtil;
 import com.blankj.utilcode.util.CrashUtils;
 import com.blankj.utilcode.util.Utils;
 import com.orhanobut.hawk.Hawk;
@@ -78,7 +79,7 @@ public class IBaseApplication extends MultiDexApplication {
      *
      * @param exceptionLogAdd 异常日志的存放的地址，如：/BaseModule/Log/
      */
-    private void registerUncaughtExceptionHandler(String exceptionLogAdd) {
+    protected void registerUncaughtExceptionHandler(String exceptionLogAdd) {
         Thread.setDefaultUncaughtExceptionHandler(AppException.getAppExceptionHandler(exceptionLogAdd));
     }
 

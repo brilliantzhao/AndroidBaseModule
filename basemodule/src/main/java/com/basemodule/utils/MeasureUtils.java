@@ -11,27 +11,46 @@ import android.view.ViewGroup;
  */
 public class MeasureUtils {
 
+    /**
+     *
+     */
     private MeasureUtils() {
         throw new AssertionError();
     }
 
-
+    /**
+     * @param context
+     * @param dp
+     * @return
+     */
     public static float dp2px(Context context, float dp) {
         return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,
                 context.getResources().getDisplayMetrics());
     }
 
+    /**
+     * @param context
+     * @param sp
+     * @return
+     */
     public static float sp2px(Context context, float sp) {
         return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, sp,
                 context.getResources().getDisplayMetrics());
     }
 
-
+    /**
+     * @param child
+     * @return
+     */
     public static int getMeasuredWidthWithMargins(View child) {
         final ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams) child.getLayoutParams();
         return child.getMeasuredWidth() + lp.leftMargin + lp.rightMargin;
     }
 
+    /**
+     * @param context
+     * @return
+     */
     public static DisplayMetrics getDisplayMetrics(Context context) {
         if (context == null) {
             return null;
@@ -40,6 +59,10 @@ public class MeasureUtils {
 //        activity.getWindowManager().getDefaultDisplay().getMetrics();
     }
 
+    /**
+     * @param view
+     * @return
+     */
     public static int[] getViewLocation(View view) {
         int[] location = new int[2];
         view.getLocationOnScreen(location);

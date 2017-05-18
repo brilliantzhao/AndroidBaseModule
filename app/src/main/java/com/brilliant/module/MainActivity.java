@@ -1,15 +1,8 @@
 package com.brilliant.module;
 
-import android.widget.TextView;
-
 import com.basemodule.base.IBaseActivity;
 
-import butterknife.BindView;
-
 public class MainActivity extends IBaseActivity {
-
-    @BindView(R.id.main_content)
-    TextView main_content;
 
     @Override
     public int getLayoutId() {
@@ -22,7 +15,6 @@ public class MainActivity extends IBaseActivity {
 
     @Override
     public void initView() {
-        main_content.setText("hello");
     }
 
     @Override
