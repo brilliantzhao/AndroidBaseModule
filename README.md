@@ -22,40 +22,40 @@ or
 ### 用到的第三方库
 
 ```xml
-            //=== butterKnife (https://github.com/JakeWharton/butterknife)
-            "butterknife"           : "com.jakewharton:butterknife:${butterKnifeVersion}",
-            "butterknife-compiler"  : "com.jakewharton:butterknife-compiler:${butterKnifeVersion}",
+        //=== butterKnife (https://github.com/JakeWharton/butterknife)
+        "butterknife"           : "com.jakewharton:butterknife:${butterKnifeVersion}",
+        "butterknife-compiler"  : "com.jakewharton:butterknife-compiler:${butterKnifeVersion}",
 
-            //=== rxjava(https://github.com/ReactiveX/RxJava)
-            "rxjava"                : "io.reactivex:rxjava:${rxjavaVersion}",
+        //=== rxjava(https://github.com/ReactiveX/RxJava)
+        "rxjava"                : "io.reactivex:rxjava:${rxjavaVersion}",
 
-            //=== rxandroid(https://github.com/ReactiveX/RxAndroid)
-            "rxandroid"             : "io.reactivex:rxandroid:${rxandroidVersion}",
+        //=== rxandroid(https://github.com/ReactiveX/RxAndroid)
+        "rxandroid"             : "io.reactivex:rxandroid:${rxandroidVersion}",
 
-            //=== AndroidUtilCode  (https://github.com/Blankj/AndroidUtilCode)
-            "utilcode"              : "com.blankj:utilcode:${utilcodeVersion}",
+        //=== AndroidUtilCode  (https://github.com/Blankj/AndroidUtilCode)
+        "utilcode"              : "com.blankj:utilcode:${utilcodeVersion}",
 
-            //=== RxLifecycle  (https://github.com/trello/RxLifecycle)
-            "rxlifecycle"           : "com.trello:rxlifecycle:${rxlifecycleVersion}",
-            "rxlifecycle-android"   : "com.trello:rxlifecycle-android:${rxlifecycleVersion}",
-            "rxlifecycle-components": "com.trello:rxlifecycle-components:${rxlifecycleVersion}",
-            "rxlifecycle-navi"      : "com.trello:rxlifecycle-navi:${rxlifecycleVersion}",
-            "rxlifecycle-kotlin"    : "com.trello:rxlifecycle-kotlin:${rxlifecycleVersion}",
+        //=== RxLifecycle  (https://github.com/trello/RxLifecycle)
+        "rxlifecycle"           : "com.trello:rxlifecycle:${rxlifecycleVersion}",
+        "rxlifecycle-android"   : "com.trello:rxlifecycle-android:${rxlifecycleVersion}",
+        "rxlifecycle-components": "com.trello:rxlifecycle-components:${rxlifecycleVersion}",
+        "rxlifecycle-navi"      : "com.trello:rxlifecycle-navi:${rxlifecycleVersion}",
+        "rxlifecycle-kotlin"    : "com.trello:rxlifecycle-kotlin:${rxlifecycleVersion}",
 
-            //=== logger (https://github.com/orhanobut/logger)
-            "logger"                : "com.orhanobut:logger:${loggerVersion}",
+        //=== logger (https://github.com/orhanobut/logger)
+        "logger"                : "com.orhanobut:logger:${loggerVersion}",
 
-            //=== SystemBarTint(https://github.com/jgilfelt/SystemBarTint)
-            "systembartint"         : "com.readystatesoftware.systembartint:systembartint:${systembartintVersion}",
+        //=== SystemBarTint(https://github.com/jgilfelt/SystemBarTint)
+        "systembartint"         : "com.readystatesoftware.systembartint:systembartint:${systembartintVersion}",
 
-            //=== glide (https://github.com/bumptech/glide)
-            "glide"                 : "com.github.bumptech.glide:glide:${glideVersion}",
+        //=== glide (https://github.com/bumptech/glide)
+        "glide"                 : "com.github.bumptech.glide:glide:${glideVersion}",
 
-            //=== hawk (https://github.com/orhanobut/hawk)
-            "hawk"                  : "com.orhanobut:hawk:${hawkVersion}",
+        //=== hawk (https://github.com/orhanobut/hawk)
+        "hawk"                  : "com.orhanobut:hawk:${hawkVersion}",
 
-            //=== fastjson (https://github.com/alibaba/fastjson)
-            "fastjson"              : "com.alibaba:fastjson:${fastjsonVersion}"
+        //=== fastjson (https://github.com/alibaba/fastjson)
+        "fastjson"              : "com.alibaba:fastjson:${fastjsonVersion}"
             
 ```
 
@@ -63,92 +63,76 @@ or
 
 * ### base相关→最底层的继承
 ```
-IBaseActivity   : 
-IBaseApplication      : 
-IBaseFragment: 
-IBaseFragmentAdapter     : 
-IBaseFragmentStateAdapter   : 
-IBaseModel      : 
-IBasePresenter: 
-IBaseView     : 
+        IBaseActivity            : "",
+        IBaseApplication         : "",
+        IBaseFragment            : "",
+        IBaseFragmentAdapter     : "",
+        IBaseFragmentStateAdapter: "",
+        IBaseModel               : "",
+        IBasePresenter           : "",
+        IBaseView                : "",
 ```
 
 * ### baseapp相关→应用的一些基本工具类
 ```
-AppException   : 异常记录与处理
-AppManager      : activity管理工具
-BaseRespose: 网络请求基础返回
+        AppException: "异常记录与处理",
+        AppManager  : "activity管理工具",
+        BaseRespose : "网络请求基础返回",
 ```
 
 * ### baserx相关→rx底层处理
 ```
-RxBus   : 
-RxCache      : 
-RxHelper: 
-RxManager     : 
-RxSchedulers   : 
-RxSubscriber      : 
-ServerException: 
+        RxBus          : "",
+        RxCache        : "",
+        RxHelper       : "",
+        RxManager      : "",
+        RxSchedulers   : "",
+        RxSubscriber   : "",
+        ServerException: "",
 ```
 
 * ### local相关→数据存储
 ```
-sharedpref--SharedPrefUtils   : sharedPreference数据存储
-cache--      : 
+        SharedPrefUtils: "sharedPreference数据存储",
 ```
 
 * ### notes相关→说明文档
 ```
-Android 代码混淆在AS的实践
-Android 使用gradle打包的各种配置
-Android 自动化打包实践 gradle打包并推送到git远程库
-Android开发之版本统一规范
-GitSubmodule
-神注释大全
+        Android 代码混淆在AS的实践
+        Android 使用gradle打包的各种配置
+        Android 自动化打包实践 gradle打包并推送到git远程库
+        Android开发之版本统一规范
+        GitSubmodule
+        神注释大全
 ```
 
-* ## utils相关→ util工具类
-* ### 缓存处理相关→[ACache.java][ACache.java]
-``` xml
-
+* ### utils相关→自定义的工具类
+```
+        ACache                  : "",
+        CollectionUtils         : "",
+        DialogPermissionUtil    : "",
+        DisplayUtil             : "",
+        FormatUtil              : "",
+        GlideCircleTransfromUtil: "",
+        GlideRoundTransformUtil : "",
+        ImageLoaderUtils        : "",
+        IpUtils                 : "",
+        JsonConvertHelper       : "",
+        MeasureUtils            : "",
+        NetWorkUtils            : "",
+        RxCountDown             : "",
+        SDCardUtils             : "",
+        TimeUtil                : "",
+        TUtil                   : "",
 ```
 	       
-* ### 缓存处理相关→[ACache.java][ACache.java]
-	   
-``` xml
-    
-```          
-
-* ### 缓存处理相关→[ACache.java][ACache.java]
-	   
-``` xml
-    
-```    
-	          
-* ## widget相关→ 自定义控件
-* ### scrollview嵌套gridview→[NoScrollGridView.java][NoScrollGridView.java]
-``` xml
-
+* ### widget相关→自定义的控件
 ```
-	
-* ### scrollview嵌套listview→[NoScrollListview.java][NoScrollListview.java]
-``` xml
-
-```
-
-* ### 双击监听→[OnDoubleClickListener.java][OnDoubleClickListener.java]
-``` xml
-
-```
-	                  
-* ### 非双击监听→[OnNoDoubleClickListener.java][OnNoDoubleClickListener.java]
-``` xml
-
-```
-	          
-* ### 自定义button→[SimpleButton.java][SimpleButton.java]
-``` xml
-
+        NoScrollGridView       : "",
+        NoScrollListview       : "",
+        OnDoubleClickListener  : "",
+        OnNoDoubleClickListener: "",
+        SimpleButton           : "",
 ```
 	       
 ### 详细介绍

@@ -1,13 +1,9 @@
 package com.basemodule.utils;
 
-import android.app.Activity;
-import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
-import android.support.v7.app.AlertDialog;
 
 /**
  * des:权限对话框管理
@@ -15,23 +11,6 @@ import android.support.v7.app.AlertDialog;
  * on 2016.06.10:21
  */
 public class DialogPermissionUtil {
-
-    /**
-     * @param activity
-     * @param content
-     */
-    public static void PermissionDialog(final Activity activity, String content) {
-        Dialog deleteDialog = new AlertDialog.Builder(activity)
-                .setTitle("提示")
-                .setMessage(content)
-                .setPositiveButton("去设置",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                startSettingIntent(activity);
-                            }
-                        }).create();
-        deleteDialog.show();
-    }
 
     /**
      * 启动app设置授权界面

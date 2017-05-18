@@ -4,7 +4,6 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
 import com.basemodule.base.IBaseApplication;
-import com.basemodule.utils.NativeUtil;
 import com.orhanobut.hawk.Hawk;
 
 /**
