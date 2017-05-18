@@ -17,7 +17,7 @@ or
 	    }
 	
 ### 项目结构
-![Alt text](https://github.com/yuanzaiyuanfang/AndroidBaseModule/raw/master/images/工程结构.png)
+![Alt text](https://github.com/yuanzaiyuanfang/AndroidBaseModule/raw/master/images/product_menu.png)
 
 ### 用到的第三方库
 
