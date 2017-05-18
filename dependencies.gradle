@@ -70,5 +70,6 @@ project.ext {
 
             //=== fastjson (https://github.com/alibaba/fastjson)
             "fastjson"              : "com.alibaba:fastjson:${fastjsonVersion}"
+
     ]
 }

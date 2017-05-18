@@ -91,19 +91,69 @@ RxSubscriber      :
 ServerException: 
 ```
 
-* ### Activity相关→[ActivityUtils.java][activity.java]→[Demo][activity.demo]
+* ### local相关→数据存储
 ```
-isActivityExists   : 判断是否存在Activity
-startActivity      : 打开Activity
-getLauncherActivity: 获取入口activity
-getTopActivity     : 获取栈顶Activity
+sharedpref--SharedPrefUtils   : sharedPreference数据存储
+cache--      : 
+```
+
+* ### notes相关→说明文档
+```
+Android 代码混淆在AS的实践
+Android 使用gradle打包的各种配置
+Android 自动化打包实践 gradle打包并推送到git远程库
+Android开发之版本统一规范
+GitSubmodule
+神注释大全
+```
+
+* ## utils相关→ util工具类
+* ### 缓存处理相关→[ACache.java][ACache.java]
+``` xml
+
 ```
 	       
-	       
+* ### 缓存处理相关→[ACache.java][ACache.java]
+	   
+``` xml
+    
+```          
+
+* ### 缓存处理相关→[ACache.java][ACache.java]
+	   
+``` xml
+    
+```    
+	          
+* ## widget相关→ 自定义控件
+* ### scrollview嵌套gridview→[NoScrollGridView.java][NoScrollGridView.java]
+``` xml
+
+```
+	
+* ### scrollview嵌套listview→[NoScrollListview.java][NoScrollListview.java]
+``` xml
+
+```
+
+* ### 双击监听→[OnDoubleClickListener.java][OnDoubleClickListener.java]
+``` xml
+
+```
+	                  
+* ### 非双击监听→[OnNoDoubleClickListener.java][OnNoDoubleClickListener.java]
+``` xml
+
+```
+	          
+* ### 自定义button→[SimpleButton.java][SimpleButton.java]
+``` xml
+
+```
 	       
 ### 详细介绍
-
 参见 AndroidBaseModule，工程地址为：https://github.com/BrillantZhao/AndroidBaseModule
+
 参见 AndroidMouldProject，工程地址为：https://github.com/BrillantZhao/AndroidMouldProject
 
 ###License
