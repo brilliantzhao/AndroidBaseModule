@@ -28,7 +28,6 @@ project.ext {
             "design"                : "com.android.support:design:${supportVersion}",
             "recyclerview-v7"       : "com.android.support:recyclerview-v7:${supportVersion}",
             "cardview-v7"           : "com.android.support:cardview-v7:${supportVersion}",
-            "constraint-layout"     : "com.android.support.constraint:constraint-layout:1.0.0-alpha9",
 
             //=== test
             "junit"                 : "junit:junit:4.12",
