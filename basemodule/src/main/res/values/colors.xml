@@ -4,7 +4,4 @@
     <color name="colorPrimaryDark">#009688</color>
     <color name="colorAccent">#5677fc</color>
 
-    <!-- app主色调-->
-    <color name="main_color">#0f8ee2</color>
-
 </resources>

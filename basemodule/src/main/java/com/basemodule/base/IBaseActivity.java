@@ -1,21 +1,22 @@
 package com.basemodule.base;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.basemodule.R;
 import com.basemodule.baseapp.AppManager;
 import com.basemodule.baserx.RxManager;
 import com.basemodule.utils.TUtil;
-import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.trello.rxlifecycle.LifecycleTransformer;
 import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
 
 import butterknife.ButterKnife;
+
+import static com.basemodule.utils.DisplayUtil.getStatusBarHeight;
 
 /***************使用例子*********************/
 //1.mvp模式
@@ -79,8 +80,6 @@ public abstract class IBaseActivity<T extends IBasePresenter, E extends IBaseMod
         this.initData();
         // 添加Activity到堆栈
         AppManager.getAppManager().addActivity(this);
-        // 修改状态栏颜色，4.4+生效
-        setStatusBarColor2(R.color.main_color);
     }
 
     /*********************子类实现*****************************/
@@ -97,33 +96,45 @@ public abstract class IBaseActivity<T extends IBasePresenter, E extends IBaseMod
     public abstract void initData();
 
     /**
-     * 修改状态栏颜色，4.4+生效
-     */
-    @TargetApi(19)
-    protected void setTranslucentStatus() {
-        Window window = getWindow();
-        // Translucent status bar
-        window.setFlags(
-                WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
-                WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        // Translucent navigation bar
-//        window.setFlags(
-//                WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION,
-//                WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-    }
-
-    /**
-     * 修改状态栏颜色，4.4+生效
+     * 设置状态栏颜色
      *
      * @param color
      */
-    protected void setStatusBarColor2(int color) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            setTranslucentStatus();
+    protected void initWindows(int color) {
+        Window window = getWindow();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
+                    | WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                    | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            //设置状态栏颜色
+            window.setStatusBarColor(color);
+            //设置导航栏颜色
+            window.setNavigationBarColor(color);
+            ViewGroup contentView = ((ViewGroup) findViewById(android.R.id.content));
+            View childAt = contentView.getChildAt(0);
+            if (childAt != null) {
+                childAt.setFitsSystemWindows(true);
+            }
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            //透明状态栏
+            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            //透明导航栏
+            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+            //设置contentview为fitsSystemWindows
+            ViewGroup contentView = (ViewGroup) findViewById(android.R.id.content);
+            View childAt = contentView.getChildAt(0);
+            if (childAt != null) {
+                childAt.setFitsSystemWindows(true);
+            }
+            //给statusbar着色
+            View view = new View(this);
+            view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, getStatusBarHeight(this)));
+            view.setBackgroundColor(color);
+            contentView.addView(view);
         }
-        SystemBarTintManager tintManager = new SystemBarTintManager(this);
-        tintManager.setStatusBarTintEnabled(true);
-        tintManager.setStatusBarTintResource(color);//通知栏所需颜色
     }
 
     @Override
