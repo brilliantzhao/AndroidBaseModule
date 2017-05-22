@@ -67,8 +67,10 @@ public abstract class IBaseActivity<T extends IBasePresenter, E extends IBaseMod
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mRxManager = new RxManager();
+
         // 为了方便实用dataBinding,不再这里绑定布局
         //  setContentView(getLayoutId());
+
         ButterKnife.bind(this);
         mContext = this;
         mPresenter = TUtil.getT(this, 0);
