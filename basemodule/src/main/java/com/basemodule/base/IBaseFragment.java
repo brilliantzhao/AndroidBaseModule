@@ -52,6 +52,8 @@ import butterknife.ButterKnife;
 //}
 public abstract class IBaseFragment<T extends IBasePresenter, E extends IBaseModel> extends Fragment {
 
+    //##########################  custom variables start ##########################################
+
     public final String TAG = this.getClass().getSimpleName();
 
     protected View rootView;
@@ -61,6 +63,10 @@ public abstract class IBaseFragment<T extends IBasePresenter, E extends IBaseMod
     public E mModel;
 
     public RxManager mRxManager;
+
+    //##########################   custom variables end  ##########################################
+
+    //######################  override methods start ##############################################
 
     @Nullable
     @Override
@@ -80,6 +86,18 @@ public abstract class IBaseFragment<T extends IBasePresenter, E extends IBaseMod
         return rootView;
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if (mPresenter != null)
+            mPresenter.onDestroy();
+        mRxManager.clear();
+    }
+
+    //######################   override methods end  ##############################################
+
+    //###################### override custom metohds start ########################################
+
     //获取布局文件
     protected abstract int getLayoutResource();
 
@@ -92,11 +110,9 @@ public abstract class IBaseFragment<T extends IBasePresenter, E extends IBaseMod
     //初始化data数据
     public abstract void initData();
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        if (mPresenter != null)
-            mPresenter.onDestroy();
-        mRxManager.clear();
-    }
+    //######################  override custom metohds end  ########################################
+
+    //######################      custom metohds start     ########################################
+
+    //######################    custom metohds end   ##############################################
 }

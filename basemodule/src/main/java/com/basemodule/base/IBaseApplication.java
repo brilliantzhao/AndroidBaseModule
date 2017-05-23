@@ -20,7 +20,7 @@ import com.orhanobut.hawk.Hawk;
  */
 public class IBaseApplication extends MultiDexApplication {
 
-    //#################################################################### 自定义变量 start
+    //##########################  custom variables start ##########################################
 
     public final String TAG = this.getClass().getSimpleName();
 
@@ -32,9 +32,9 @@ public class IBaseApplication extends MultiDexApplication {
 
     private static Dialog progressDialog;
 
-    //#################################################################### 自定义变量 end
+    //##########################   custom variables end  ##########################################
 
-    //#################################################################### 重写系统方法 start
+    //######################  override methods start ##############################################
 
     @Override
     public void onCreate() {
@@ -50,18 +50,18 @@ public class IBaseApplication extends MultiDexApplication {
         Hawk.init(this).build();
     }
 
-    //#################################################################### 重写系统方法 end
-
-    //#################################################################### 重写自定义方法 start
-
-    //#################################################################### 重写自定义方法 end
-
-    //#################################################################### 自定义方法 start
-
     @Override
     public void onTerminate() {
         super.onTerminate();
     }
+
+    //######################   override methods end  ##############################################
+
+    //###################### override custom metohds start ########################################
+
+    //######################  override custom metohds end  ########################################
+
+    //######################      custom metohds start     ########################################
 
     /**
      * 分包
@@ -83,7 +83,7 @@ public class IBaseApplication extends MultiDexApplication {
         Thread.setDefaultUncaughtExceptionHandler(AppException.getAppExceptionHandler(exceptionLogAdd));
     }
 
-    //#################################################################### 自定义方法 end
+    //######################    custom metohds end   ##############################################
 
     //#################################################################### getter and setter start
 

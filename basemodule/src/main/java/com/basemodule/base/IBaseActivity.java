@@ -53,6 +53,8 @@ import static com.basemodule.utils.DisplayUtil.getStatusBarHeight;
 public abstract class IBaseActivity<T extends IBasePresenter, E extends IBaseModel> extends RxAppCompatActivity
         implements IBaseView {
 
+    //##########################  custom variables start ##########################################
+
     public final String TAG = this.getClass().getSimpleName();
 
     public T mPresenter;
@@ -63,12 +65,16 @@ public abstract class IBaseActivity<T extends IBasePresenter, E extends IBaseMod
 
     public RxManager mRxManager;
 
+    //##########################   custom variables end  ##########################################
+
+    //######################  override methods start ##############################################
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mRxManager = new RxManager();
         // 为了方便实用dataBinding,不再这里绑定布局
-         setContentView(getLayoutId());
+//         setContentView(getLayoutId());
         ButterKnife.bind(this);
         mContext = this;
         mPresenter = TUtil.getT(this, 0);
@@ -83,7 +89,40 @@ public abstract class IBaseActivity<T extends IBasePresenter, E extends IBaseMod
         AppManager.getAppManager().addActivity(this);
     }
 
-    /*********************子类实现*****************************/
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mPresenter != null) {
+            mPresenter.onDestroy();
+        }
+        mRxManager.clear();
+        // 结束Activity从堆栈中移除
+        AppManager.getAppManager().finishActivity(this);
+    }
+
+    //######################   override methods end  ##############################################
+
+    //###################### override custom metohds start ########################################
+
+    @Override
+    public <T> LifecycleTransformer<T> bindToLife() {
+        return this.<T>bindToLifecycle();
+    }
+
+    //######################  override custom metohds end  ########################################
+
+    //######################      custom metohds start     ########################################
+
     //获取布局文件
     public abstract int getLayoutId();
 
@@ -138,30 +177,5 @@ public abstract class IBaseActivity<T extends IBasePresenter, E extends IBaseMod
         }
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (mPresenter != null) {
-            mPresenter.onDestroy();
-        }
-        mRxManager.clear();
-        // 结束Activity从堆栈中移除
-        AppManager.getAppManager().finishActivity(this);
-
-    }
-
-    @Override
-    public <T> LifecycleTransformer<T> bindToLife() {
-        return this.<T>bindToLifecycle();
-    }
+    //######################    custom metohds end   ##############################################
 }
