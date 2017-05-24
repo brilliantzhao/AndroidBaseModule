@@ -13,7 +13,7 @@ or
 ##### Add the dependency
 
     dependencies {
-	        compile 'com.github.BrillantZhao:AndroidBaseModule:1.1.2.47'
+	        compile 'com.github.BrillantZhao:AndroidBaseModule:1.1.2.48'
 	    }
 	
 ### 项目结构
