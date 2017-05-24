@@ -50,7 +50,8 @@ import butterknife.ButterKnife;
 //    public void initView() {
 //    }
 //}
-public abstract class IBaseFragment<T extends IBasePresenter, E extends IBaseModel> extends Fragment {
+public abstract class IBaseFragment<T extends IBasePresenter, E extends IBaseModel> extends Fragment
+        implements IBaseView {
 
     //##########################  custom variables start ##########################################
 

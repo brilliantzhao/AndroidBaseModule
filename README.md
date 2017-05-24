@@ -137,7 +137,9 @@ or
 ### 详细介绍
 参见 AndroidBaseModule，工程地址为：https://github.com/BrillantZhao/AndroidBaseModule
 
-参见 AndroidMouldProject，工程地址为：https://github.com/BrillantZhao/AndroidMouldProject2
+参见 AndroidMouldProject(常规的MVP结构)，工程地址为：https://github.com/BrillantZhao/AndroidMouldProject
+
+参见 AndroidMouldProject(组件化的MVP结构，建议使用)，工程地址为：https://github.com/BrillantZhao/AndroidMouldProject2
 
 ###License
 >The MIT License (MIT)
