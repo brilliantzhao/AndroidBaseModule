@@ -5,6 +5,8 @@ import java.util.Map;
 
 public interface Printer {
 
+    void init(boolean isDebug, String tag, boolean isShowThreadInfo);
+
     String getFormatLog();
 
     void d(String message, Object... args);

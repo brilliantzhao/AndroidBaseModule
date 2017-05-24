@@ -57,6 +57,7 @@ public class LoggerPrinter implements Printer {
      * @param tag
      * @param isShowThreadInfo
      */
+    @Override
     public void init(boolean isDebug, String tag, boolean isShowThreadInfo) {
         this.isDebug = isDebug;
         this.tag = tag;
