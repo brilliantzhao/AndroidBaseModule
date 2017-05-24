@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * description:
+ * description: 日志打印，还可以进一步完善，添加utils里面的一些写入文件等方法
  * Date: 2017/5/23 15:49
  * User: Administrator
  */
@@ -19,7 +19,7 @@ public class MyLogUtil {
      * @param isShowLog 是否打印日志
      */
     public static void init(boolean isShowLog, String tag, boolean isShowThreadInfo) {
-        printer.init(isShowLog,tag,isShowThreadInfo);
+        printer.init(isShowLog, tag, isShowThreadInfo);
     }
 
     public static String getFormatLog() {
