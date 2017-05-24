@@ -14,11 +14,23 @@ public interface IBaseView {
     void showLoading();
 
     /**
-     * 带有文字的家在动画
+     * 带有文字的加载动画
      *
      * @param notice
      */
     void showLoading(String notice);
+
+    /**
+     * 个性化的加载框
+     *
+     * @param cancelAble
+     * @param notice
+     * @param orientation
+     * @param backgroundColor
+     * @param messageColor
+     */
+    void showCustomLoading(boolean cancelAble, String notice, int orientation, int backgroundColor,
+                           int messageColor);
 
     /**
      * 隐藏加载
