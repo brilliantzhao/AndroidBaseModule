@@ -4,7 +4,7 @@ android base module project
 
 ### 使用方式
 
-1) 新工程建议直接下载[AndroidMouldProject](https://github.com/BrillantZhao/AndroidMouldProject)，修改包名后在此基础上开发；
+1) 新工程建议直接下载[AndroidMouldProject](https://github.com/BrillantZhao/AndroidMouldProject2)，修改包名后在此基础上开发；
     
 or
 
@@ -13,7 +13,7 @@ or
 ##### Add the dependency
 
     dependencies {
-	        compile 'com.github.BrillantZhao:AndroidBaseModule:1.1.2.32'
+	        compile 'com.github.BrillantZhao:AndroidBaseModule:1.1.2.46'
 	    }
 	
 ### 项目结构
@@ -137,7 +137,7 @@ or
 ### 详细介绍
 参见 AndroidBaseModule，工程地址为：https://github.com/BrillantZhao/AndroidBaseModule
 
-参见 AndroidMouldProject，工程地址为：https://github.com/BrillantZhao/AndroidMouldProject
+参见 AndroidMouldProject，工程地址为：https://github.com/BrillantZhao/AndroidMouldProject2
 
 ###License
 >The MIT License (MIT)
