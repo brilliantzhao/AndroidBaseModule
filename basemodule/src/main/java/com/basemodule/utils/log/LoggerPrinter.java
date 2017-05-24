@@ -19,7 +19,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
-final class LoggerPrinter implements Printer {
+public class LoggerPrinter implements Printer {
 
     private boolean isShowThreadInfo = true;
 
