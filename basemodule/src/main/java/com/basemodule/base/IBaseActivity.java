@@ -84,7 +84,7 @@ public abstract class IBaseActivity<T extends IBasePresenter, E extends IBaseMod
         }
         this.initPresenter();
         this.initView();
-        this.initData();
+        this.initData(savedInstanceState);
         // 添加Activity到堆栈
         AppManager.getAppManager().addActivity(this);
     }
@@ -133,7 +133,7 @@ public abstract class IBaseActivity<T extends IBasePresenter, E extends IBaseMod
     public abstract void initView();
 
     //初始化data数据
-    public abstract void initData();
+    public abstract void initData(Bundle savedInstanceState);
 
     /**
      * 设置状态栏颜色
