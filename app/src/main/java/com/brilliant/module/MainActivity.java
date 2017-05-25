@@ -1,5 +1,7 @@
 package com.brilliant.module;
 
+import android.os.Bundle;
+
 import com.basemodule.base.IBaseActivity;
 
 public class MainActivity extends IBaseActivity {
@@ -18,7 +20,7 @@ public class MainActivity extends IBaseActivity {
     }
 
     @Override
-    public void initData() {
+    public void initData(Bundle savedInstanceState) {
     }
 
     @Override

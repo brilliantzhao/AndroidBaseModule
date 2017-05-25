@@ -22,40 +22,34 @@ or
 ### 用到的第三方库
 
 ```xml
-        //=== butterKnife (https://github.com/JakeWharton/butterknife)
-        "butterknife"           : "com.jakewharton:butterknife:${butterKnifeVersion}",
-        "butterknife-compiler"  : "com.jakewharton:butterknife-compiler:${butterKnifeVersion}",
+            //=== butterKnife (https://github.com/JakeWharton/butterknife)
+            "butterknife"           : "com.jakewharton:butterknife:${butterKnifeVersion}",
+            "butterknife-compiler"  : "com.jakewharton:butterknife-compiler:${butterKnifeVersion}",
 
-        //=== rxjava(https://github.com/ReactiveX/RxJava)
-        "rxjava"                : "io.reactivex:rxjava:${rxjavaVersion}",
+            //=== rxjava(https://github.com/ReactiveX/RxJava)
+            "rxjava"                : "io.reactivex:rxjava:${rxjavaVersion}",
 
-        //=== rxandroid(https://github.com/ReactiveX/RxAndroid)
-        "rxandroid"             : "io.reactivex:rxandroid:${rxandroidVersion}",
+            //=== rxandroid(https://github.com/ReactiveX/RxAndroid)
+            "rxandroid"             : "io.reactivex:rxandroid:${rxandroidVersion}",
 
-        //=== AndroidUtilCode  (https://github.com/Blankj/AndroidUtilCode)
-        "utilcode"              : "com.blankj:utilcode:${utilcodeVersion}",
+            //=== AndroidUtilCode  (https://github.com/Blankj/AndroidUtilCode)
+            "utilcode"              : "com.blankj:utilcode:${utilcodeVersion}",
 
-        //=== RxLifecycle  (https://github.com/trello/RxLifecycle)
-        "rxlifecycle"           : "com.trello:rxlifecycle:${rxlifecycleVersion}",
-        "rxlifecycle-android"   : "com.trello:rxlifecycle-android:${rxlifecycleVersion}",
-        "rxlifecycle-components": "com.trello:rxlifecycle-components:${rxlifecycleVersion}",
-        "rxlifecycle-navi"      : "com.trello:rxlifecycle-navi:${rxlifecycleVersion}",
-        "rxlifecycle-kotlin"    : "com.trello:rxlifecycle-kotlin:${rxlifecycleVersion}",
+            //=== RxLifecycle  (https://github.com/trello/RxLifecycle)
+            "rxlifecycle"           : "com.trello:rxlifecycle:${rxlifecycleVersion}",
+            "rxlifecycle-android"   : "com.trello:rxlifecycle-android:${rxlifecycleVersion}",
+            "rxlifecycle-components": "com.trello:rxlifecycle-components:${rxlifecycleVersion}",
+            "rxlifecycle-navi"      : "com.trello:rxlifecycle-navi:${rxlifecycleVersion}",
+            "rxlifecycle-kotlin"    : "com.trello:rxlifecycle-kotlin:${rxlifecycleVersion}",
 
-        //=== logger (https://github.com/orhanobut/logger)
-        "logger"                : "com.orhanobut:logger:${loggerVersion}",
+            //=== glide (https://github.com/bumptech/glide)
+            "glide"                 : "com.github.bumptech.glide:glide:${glideVersion}",
 
-        //=== SystemBarTint(https://github.com/jgilfelt/SystemBarTint)
-        "systembartint"         : "com.readystatesoftware.systembartint:systembartint:${systembartintVersion}",
+            //=== hawk (https://github.com/orhanobut/hawk)
+            "hawk"                  : "com.orhanobut:hawk:${hawkVersion}",
 
-        //=== glide (https://github.com/bumptech/glide)
-        "glide"                 : "com.github.bumptech.glide:glide:${glideVersion}",
-
-        //=== hawk (https://github.com/orhanobut/hawk)
-        "hawk"                  : "com.orhanobut:hawk:${hawkVersion}",
-
-        //=== fastjson (https://github.com/alibaba/fastjson)
-        "fastjson"              : "com.alibaba:fastjson:${fastjsonVersion}"
+            //=== fastjson (https://github.com/alibaba/fastjson)
+            "fastjson"              : "com.alibaba:fastjson:${fastjsonVersion}"
             
 ```
 

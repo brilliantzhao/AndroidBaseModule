@@ -6,7 +6,7 @@ import android.content.Context;
 import com.basemodule.R;
 import com.basemodule.base.IBaseApplication;
 import com.basemodule.utils.NetWorkUtils;
-import com.orhanobut.logger.Logger;
+import com.basemodule.utils.log.MyLogUtil;
 
 import rx.Subscriber;
 
@@ -97,7 +97,7 @@ public abstract class RxSubscriber<T> extends Subscriber<T> {
     public void onError(Throwable e) {
         _onAfter();
 
-        Logger.d(TAG, "onError: " + e.getMessage());
+        MyLogUtil.d(TAG, "onError: " + e.getMessage());
 
         if (showDialog)
             stopProgressDialog();

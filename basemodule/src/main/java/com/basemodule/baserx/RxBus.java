@@ -2,8 +2,7 @@ package com.basemodule.baserx;
 
 import android.support.annotation.NonNull;
 
-
-import com.orhanobut.logger.Logger;
+import com.basemodule.utils.log.MyLogUtil;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -70,7 +69,7 @@ public class RxBus {
         }
         Subject<T, T> subject;
         subjectList.add(subject = PublishSubject.create());
-        Logger.d("register" + tag + "  size:" + subjectList.size());
+        MyLogUtil.d("register" + tag + "  size:" + subjectList.size());
         return subject;
     }
 
@@ -99,7 +98,7 @@ public class RxBus {
             subjects.remove((Subject<?, ?>) observable);
             if (isEmpty(subjects)) {
                 subjectMapper.remove(tag);
-                Logger.d("unregister" + tag + "  size:" + subjects.size());
+                MyLogUtil.d("unregister" + tag + "  size:" + subjects.size());
             }
         }
         return getInstance();
@@ -116,12 +115,12 @@ public class RxBus {
      */
     @SuppressWarnings({"unchecked", "rawtypes"})
     public void post(@NonNull Object tag, @NonNull Object content) {
-        Logger.d("post" + "eventName: " + tag);
+        MyLogUtil.d("post" + "eventName: " + tag);
         List<Subject> subjectList = subjectMapper.get(tag);
         if (!isEmpty(subjectList)) {
             for (Subject subject : subjectList) {
                 subject.onNext(content);
-                Logger.d("onEvent" + "eventName: " + tag);
+                MyLogUtil.d("onEvent" + "eventName: " + tag);
             }
         }
     }

@@ -2,7 +2,7 @@ package com.basemodule.baserx;
 
 
 import com.basemodule.baseapp.BaseRespose;
-import com.orhanobut.logger.Logger;
+import com.basemodule.utils.log.MyLogUtil;
 
 import rx.Observable;
 import rx.Subscriber;
@@ -37,7 +37,7 @@ public class RxHelper {
                 return tObservable.flatMap(new Func1<BaseRespose<T>, Observable<T>>() {
                     @Override
                     public Observable<T> call(BaseRespose<T> result) {
-                        Logger.d("result from api : " + result);
+                        MyLogUtil.d("result from api : " + result);
                         if (result.success()) {
                             return createData(result.data);
                         } else {

@@ -56,14 +56,8 @@ dependencies {
     compile rootProject.ext.dependencies["rxlifecycle-navi"]
     compile rootProject.ext.dependencies["rxlifecycle-kotlin"]
 
-    //=== logger (https://github.com/orhanobut/logger)
-    compile rootProject.ext.dependencies["logger"]
-
     //=== glide (https://github.com/bumptech/glide)
     compile rootProject.ext.dependencies["glide"]
-
-    //=== SystemBarTint(https://github.com/jgilfelt/SystemBarTint)
-    compile rootProject.ext.dependencies["systembartint"]
 
     //=== Butter Knife
     compile rootProject.ext.dependencies["butterknife"]
