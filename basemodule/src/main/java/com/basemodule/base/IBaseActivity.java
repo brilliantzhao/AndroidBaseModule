@@ -1,5 +1,7 @@
 package com.basemodule.base;
 
+import android.annotation.TargetApi;
+import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
@@ -175,6 +177,28 @@ public abstract class IBaseActivity<T extends IBasePresenter, E extends IBaseMod
             view.setBackgroundColor(color);
             contentView.addView(view);
         }
+    }
+
+    /**
+     * 状态栏浮在全屏的页面上面
+     *
+     * @param paramActivity
+     */
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    protected void setSystemBarTransparent(Activity paramActivity) {
+        Window window = paramActivity.getWindow();
+        WindowManager.LayoutParams layoutParams = window.getAttributes();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            //api 21 解决方案
+            View systemdecor = window.getDecorView();
+            systemdecor.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+            layoutParams.flags |= WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS;
+            window.setStatusBarColor(0x00000000);
+        } else {
+            //api 19 解决方案
+            layoutParams.flags |= WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
+        }
+        window.setAttributes(layoutParams);
     }
 
     //######################    custom metohds end   ##############################################
