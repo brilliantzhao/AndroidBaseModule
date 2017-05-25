@@ -1,6 +1,5 @@
 package com.basemodule.base;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
@@ -9,16 +8,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
 
+import com.basemodule.R;
 import com.basemodule.baseapp.AppManager;
 import com.basemodule.baserx.RxManager;
+import com.basemodule.utils.DisplayUtil;
 import com.basemodule.utils.TUtil;
+import com.basemodule.utils.log.MyLogUtil;
 import com.trello.rxlifecycle.LifecycleTransformer;
 import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
 
 import butterknife.ButterKnife;
-
-import static com.basemodule.utils.DisplayUtil.getStatusBarHeight;
 
 /***************使用例子*********************/
 //1.mvp模式
@@ -138,6 +139,8 @@ public abstract class IBaseActivity<T extends IBasePresenter, E extends IBaseMod
     public abstract void initData(Bundle savedInstanceState);
 
     /**
+     * 适用于自定义状态栏颜色，同时不影响页面布局的页面(页面布局不会向上占据状态栏位置)
+     * <p>
      * 设置状态栏颜色
      *
      * @param color
@@ -173,18 +176,19 @@ public abstract class IBaseActivity<T extends IBasePresenter, E extends IBaseMod
             }
             //给statusbar着色
             View view = new View(this);
-            view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, getStatusBarHeight(this)));
+            view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, DisplayUtil.getStatusBarHeight(this)));
             view.setBackgroundColor(color);
             contentView.addView(view);
         }
     }
 
     /**
+     * 适用于启动页和引导页等需要全屏展示的页面(页面布局会向上占据状态栏位置)
+     * <p>
      * 状态栏浮在全屏的页面上面
      *
      * @param paramActivity
      */
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     protected void setSystemBarTransparent(Activity paramActivity) {
         Window window = paramActivity.getWindow();
         WindowManager.LayoutParams layoutParams = window.getAttributes();
@@ -201,5 +205,50 @@ public abstract class IBaseActivity<T extends IBasePresenter, E extends IBaseMod
         window.setAttributes(layoutParams);
     }
 
+    /**
+     * 适用于需要全屏展示,同时布局不会占据状态栏的页面(页面布局不会向上占据状态栏位置)
+     * <p>
+     * 方式1：使用系统的方法
+     * 注意：需要在页面的根布局下面的第一个子布局加上下面两个属性，才能布局不会顶到最上面
+     * android:fitsSystemWindows="true"
+     * android:clipToPadding="true"
+     */
+    protected void initTitleBarWithSystem() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            //透明状态栏
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+//            //透明导航栏 这种做法在虚拟键盘位于屏幕底部的手机上时，会导致虚拟键盘遮挡底部的布局，所以不建议使用
+//            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+        }
+    }
+
+    /**
+     * 适用于需要全屏展示,同时布局不会占据状态栏的页面(页面布局不会向上占据状态栏位置)
+     * <p>
+     * 方式2：使用动态的设置状态栏高度的方式
+     * 注意：需要在布局文件中include状态栏的布局文件，代码如下：
+     * <include layout="@layout/layout_status_bar" />
+     */
+    protected void initTitleBarWithSyncHeight() {
+        //当系统版本为4.4或者4.4以上时可以使用沉浸式状态栏
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            //透明状态栏
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+//            //透明导航栏 这种做法在虚拟键盘位于屏幕底部的手机上时，会导致虚拟键盘遮挡底部的布局，所以不建议使用
+//            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+            // 自定义的状态栏
+            LinearLayout linear_bar = (LinearLayout) findViewById(R.id.layout_status_bar);
+            linear_bar.setVisibility(View.VISIBLE);
+            //获取到状态栏的高度
+            int statusHeight = DisplayUtil.getStatusBarHeight(this);
+            MyLogUtil.d("statusHeight = " + statusHeight);
+            //动态的设置隐藏布局的高度
+            LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) linear_bar.getLayoutParams();
+            params.height = statusHeight;
+            linear_bar.setLayoutParams(params);
+        }
+    }
+
     //######################    custom metohds end   ##############################################
+
 }
