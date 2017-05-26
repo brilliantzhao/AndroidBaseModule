@@ -90,8 +90,7 @@ public abstract class IBaseFragment<T extends IBasePresenter, E extends IBaseMod
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        if (rootView == null)
-            rootView = inflater.inflate(getLayoutResource(), container, false);
+        View rootView = inflater.inflate(getLayoutResource(), container, false);
         mRxManager = new RxManager();
         ButterKnife.bind(this, rootView);
         mPresenter = TUtil.getT(this, 0);
