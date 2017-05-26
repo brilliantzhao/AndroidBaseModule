@@ -227,7 +227,7 @@ public abstract class IBaseActivity<T extends IBasePresenter, E extends IBaseMod
      * <p>
      * 方式2：使用动态的设置状态栏高度的方式
      * 注意：需要在布局文件中include状态栏的布局文件，代码如下：
-     * <include layout="@layout/layout_status_bar" />
+     * <include layout="@layout/basemod_layout_status_bar" />
      */
     protected void initTitleBarWithSyncHeight() {
         //当系统版本为4.4或者4.4以上时可以使用沉浸式状态栏

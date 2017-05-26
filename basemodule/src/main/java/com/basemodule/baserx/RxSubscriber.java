@@ -104,7 +104,7 @@ public abstract class RxSubscriber<T> extends Subscriber<T> {
         e.printStackTrace();
         //网络
         if (!NetWorkUtils.isNetConnected(IBaseApplication.getAppInstance())) {
-            _onError(IBaseApplication.getAppInstance().getString(R.string.no_net));
+            _onError(IBaseApplication.getAppInstance().getString(R.string.basemod_no_net));
         }
         //服务器
         else if (e instanceof ServerException) {

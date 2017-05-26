@@ -3,7 +3,7 @@
     android:id="@+id/layout_status_bar"
     android:layout_width="match_parent"
     android:layout_height="66px"
-    android:background="@color/transparent"
+    android:background="@color/basemod_transparent"
     android:orientation="vertical"
     android:visibility="gone">
 
