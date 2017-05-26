@@ -90,7 +90,7 @@ public abstract class IBaseFragment<T extends IBasePresenter, E extends IBaseMod
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(getLayoutResource(), container, false);
+        rootView = inflater.inflate(getLayoutResource(), container, false);
         mRxManager = new RxManager();
         ButterKnife.bind(this, rootView);
         mPresenter = TUtil.getT(this, 0);
@@ -99,7 +99,7 @@ public abstract class IBaseFragment<T extends IBasePresenter, E extends IBaseMod
             mPresenter.mContext = this.getActivity();
         }
         initPresenter();
-        initView();
+        initView(rootView);
         initData(savedInstanceState);
         return rootView;
     }
@@ -180,7 +180,7 @@ public abstract class IBaseFragment<T extends IBasePresenter, E extends IBaseMod
     public abstract void initPresenter();
 
     //初始化view
-    protected abstract void initView();
+    protected abstract void initView(View rootView);
 
     //初始化data数据
     public abstract void initData(Bundle savedInstanceState);
@@ -231,7 +231,6 @@ public abstract class IBaseFragment<T extends IBasePresenter, E extends IBaseMod
      * 最后在 onFragmentVisibleChange() 里根据数据下载状态来控制下载进度ui控件的显示与隐藏
      */
     protected void onFragmentFirstVisible() {
-
     }
 
     /**
