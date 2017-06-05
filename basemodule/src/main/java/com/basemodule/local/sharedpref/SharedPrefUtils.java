@@ -12,10 +12,18 @@ import com.orhanobut.hawk.Hawk;
  */
 public class SharedPrefUtils {
 
-    private SharedPreferences sp;
+    private static SharedPreferences sp;
 
     private static SharedPrefUtils instance;
 
+    private SharedPrefUtils() {
+    }
+
+    /**
+     * 单例
+     *
+     * @return
+     */
     public static SharedPrefUtils getInstance() {
         if (instance == null) {
             synchronized (SharedPrefUtils.class) {
@@ -32,7 +40,7 @@ public class SharedPrefUtils {
      *
      * @param context
      */
-    public void init(Context context) {
+    public static void init(Context context) {
         if (sp == null) {
             sp = PreferenceManager.getDefaultSharedPreferences(context);
         }
