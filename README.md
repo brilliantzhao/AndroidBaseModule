@@ -1,13 +1,11 @@
-# AndroidBaseModule
+## AndroidBaseModule
 android base module project
 基础的Android开发依赖包，独立出来主要是为了持续更新，方便多个项目同时使用，同步更新；同时使工程结构更加简洁。
 
 ### 使用方式
 
-1) 新工程建议直接下载[AndroidMouldProject](https://github.com/BrillantZhao/AndroidMouldProject2)，修改包名后在此基础上开发；
-    
+1) 新工程建议直接下载[AndroidMouldProject2](https://github.com/BrillantZhao/AndroidMouldProject2)，修改包名后在此基础上开发；
 or
-
 2) Add Library module as a dependency in your build.gradle file.
 
 ##### Add the dependency
@@ -21,7 +19,7 @@ or
 
 ### 用到的第三方库
 
-```xml
+```
             //=== butterKnife (https://github.com/JakeWharton/butterknife)
             "butterknife"           : "com.jakewharton:butterknife:${butterKnifeVersion}",
             "butterknife-compiler"  : "com.jakewharton:butterknife-compiler:${butterKnifeVersion}",
@@ -130,12 +128,10 @@ or
 	       
 ### 详细介绍
 参见 AndroidBaseModule，工程地址为：https://github.com/BrillantZhao/AndroidBaseModule
-
 参见 AndroidMouldProject(常规的MVP结构)，工程地址为：https://github.com/BrillantZhao/AndroidMouldProject
-
 参见 AndroidMouldProject(组件化的MVP结构，建议使用)，工程地址为：https://github.com/BrillantZhao/AndroidMouldProject2
 
-###License
+### License
 >The MIT License (MIT)
 
 >Copyright (c) 2015 Dee
