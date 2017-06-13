@@ -6,4 +6,8 @@
     android:padding="10dp"
     tools:context="com.brilliant.module.MainActivity">
 
+    <TextView
+        android:text="base module"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </LinearLayout>

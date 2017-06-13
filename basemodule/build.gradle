@@ -23,6 +23,7 @@ android {
     lintOptions {
         abortOnError false
     }
+
 }
 
 dependencies {
@@ -37,13 +38,13 @@ dependencies {
     compile rootProject.ext.dependencies["cardview-v7"]
     compile rootProject.ext.dependencies["support-v4"]
     compile rootProject.ext.dependencies["design"]
-    //=== multidex
-    compile 'com.android.support:multidex:1.0.1'
 
     //################## 引入第三方jar包
     compile files('libs/commons-codec-1.6.jar')
 
     //################## git上第三方库
+    //=== multidex
+    compile rootProject.ext.dependencies["multidex"]
 
     //=== RxLifecycle  (https://github.com/trello/RxLifecycle)
     compile rootProject.ext.dependencies["rxlifecycle"]
@@ -54,6 +55,7 @@ dependencies {
 
     //=== glide (https://github.com/bumptech/glide)
     compile rootProject.ext.dependencies["glide"]
+    annotationProcessor rootProject.ext.dependencies["glide-compiler"]
 
     //=== Butter Knife
     compile rootProject.ext.dependencies["butterknife"]

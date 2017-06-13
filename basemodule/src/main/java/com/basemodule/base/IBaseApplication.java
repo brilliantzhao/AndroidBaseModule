@@ -9,7 +9,6 @@ import android.support.multidex.MultiDexApplication;
 
 import com.basemodule.baseapp.AppException;
 import com.basemodule.utils.NativeUtil;
-import com.blankj.utilcode.util.CrashUtils;
 import com.blankj.utilcode.util.Utils;
 import com.orhanobut.hawk.Hawk;
 
@@ -43,7 +42,6 @@ public class IBaseApplication extends MultiDexApplication {
         setContext(getApplicationContext());
         //=== init AndroidUtilCode
         Utils.init(this);
-        CrashUtils.getInstance().init();  // 异常捕捉
         //=== 安装包信息
         setPackageInfo(NativeUtil.getPackageInfo(getContext()));
         //=== init Hawk

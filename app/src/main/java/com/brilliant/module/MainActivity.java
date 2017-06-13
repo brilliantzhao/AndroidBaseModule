@@ -7,6 +7,12 @@ import com.basemodule.base.IBaseActivity;
 public class MainActivity extends IBaseActivity {
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(getLayoutId());
+    }
+
+    @Override
     public int getLayoutId() {
         return R.layout.activity_main;
     }

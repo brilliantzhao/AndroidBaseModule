@@ -1,10 +1,11 @@
 def supportVersion = "25.3.0"
+def multidexVersion = "1.0.1"
 def butterKnifeVersion = "8.6.0"
-def utilcodeVersion = "1.5.1"
+def utilcodeVersion = "1.7.0"
 def rxlifecycleVersion = "1.0"
-def glideVersion = "3.6.1"
+def glideVersion = "4.0.0-RC0"
 def hawkVersion = "2.0.1"
-def fastjsonVersion = "1.2.31"
+def fastjsonVersion = "1.2.33"
 
 project.ext {
     android = [
@@ -31,6 +32,9 @@ project.ext {
             //=== java8-support
             "stream"                : "com.annimon:stream:1.0.8",
 
+            //=== multidex
+            "multidex"              : "com.android.support:multidex:${multidexVersion}",
+
             //=== butterKnife (https://github.com/JakeWharton/butterknife)
             "butterknife"           : "com.jakewharton:butterknife:${butterKnifeVersion}",
             "butterknife-compiler"  : "com.jakewharton:butterknife-compiler:${butterKnifeVersion}",
@@ -47,6 +51,7 @@ project.ext {
 
             //=== glide (https://github.com/bumptech/glide)
             "glide"                 : "com.github.bumptech.glide:glide:${glideVersion}",
+            "glide-compiler"        : "com.github.bumptech.glide:compiler:${glideVersion}",
 
             //=== hawk (https://github.com/orhanobut/hawk)
             "hawk"                  : "com.orhanobut:hawk:${hawkVersion}",
