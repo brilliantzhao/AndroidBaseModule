@@ -1,7 +1,5 @@
 def supportVersion = "25.3.0"
-def butterKnifeVersion = "8.5.1"
-def rxjavaVersion = "1.1.9"
-def rxandroidVersion = "1.2.1"
+def butterKnifeVersion = "8.6.0"
 def utilcodeVersion = "1.5.1"
 def rxlifecycleVersion = "1.0"
 def glideVersion = "3.6.1"
@@ -36,12 +34,6 @@ project.ext {
             //=== butterKnife (https://github.com/JakeWharton/butterknife)
             "butterknife"           : "com.jakewharton:butterknife:${butterKnifeVersion}",
             "butterknife-compiler"  : "com.jakewharton:butterknife-compiler:${butterKnifeVersion}",
-
-            //=== rxjava(https://github.com/ReactiveX/RxJava)
-            "rxjava"                : "io.reactivex:rxjava:${rxjavaVersion}",
-
-            //=== rxandroid(https://github.com/ReactiveX/RxAndroid)
-            "rxandroid"             : "io.reactivex:rxandroid:${rxandroidVersion}",
 
             //=== AndroidUtilCode  (https://github.com/Blankj/AndroidUtilCode)
             "utilcode"              : "com.blankj:utilcode:${utilcodeVersion}",

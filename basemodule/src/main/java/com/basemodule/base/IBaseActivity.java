@@ -12,7 +12,6 @@ import android.widget.LinearLayout;
 
 import com.basemodule.R;
 import com.basemodule.baseapp.AppManager;
-import com.basemodule.baserx.RxManager;
 import com.basemodule.utils.DisplayUtil;
 import com.basemodule.utils.TUtil;
 import com.basemodule.utils.log.MyLogUtil;
@@ -66,8 +65,6 @@ public abstract class IBaseActivity<T extends IBasePresenter, E extends IBaseMod
 
     public Context mContext;
 
-    public RxManager mRxManager;
-
     //##########################   custom variables end  ##########################################
 
     //######################  override methods start ##############################################
@@ -75,7 +72,6 @@ public abstract class IBaseActivity<T extends IBasePresenter, E extends IBaseMod
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mRxManager = new RxManager();
         // 为了方便实用dataBinding,不再这里绑定布局
 //         setContentView(getLayoutId());
         ButterKnife.bind(this);
@@ -108,7 +104,6 @@ public abstract class IBaseActivity<T extends IBasePresenter, E extends IBaseMod
         if (mPresenter != null) {
             mPresenter.onDestroy();
         }
-        mRxManager.clear();
         // 结束Activity从堆栈中移除
         AppManager.getAppManager().finishActivity(this);
     }

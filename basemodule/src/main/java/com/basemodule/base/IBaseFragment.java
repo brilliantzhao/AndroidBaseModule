@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.basemodule.baserx.RxManager;
 import com.basemodule.utils.TUtil;
 import com.trello.rxlifecycle.LifecycleTransformer;
 
@@ -68,8 +67,6 @@ public abstract class IBaseFragment<T extends IBasePresenter, E extends IBaseMod
 
     public E mModel;
 
-    public RxManager mRxManager;
-
     //=== 懒加载实现
     private boolean isFragmentVisible;
 
@@ -91,7 +88,6 @@ public abstract class IBaseFragment<T extends IBasePresenter, E extends IBaseMod
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootView = inflater.inflate(getLayoutResource(), container, false);
-        mRxManager = new RxManager();
         ButterKnife.bind(this, rootView);
         mPresenter = TUtil.getT(this, 0);
         mModel = TUtil.getT(this, 1);
@@ -134,7 +130,6 @@ public abstract class IBaseFragment<T extends IBasePresenter, E extends IBaseMod
         super.onDestroyView();
         if (mPresenter != null)
             mPresenter.onDestroy();
-        mRxManager.clear();
     }
 
     //setUserVisibleHint()在Fragment创建时会先被调用一次，传入isVisibleToUser = false

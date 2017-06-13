@@ -45,11 +45,6 @@ dependencies {
 
     //################## git上第三方库
 
-    //=== rxjava
-    compile rootProject.ext.dependencies["rxjava"]
-    //=== rxandroid
-    compile rootProject.ext.dependencies["rxandroid"]
-
     //=== RxLifecycle  (https://github.com/trello/RxLifecycle)
     compile rootProject.ext.dependencies["rxlifecycle"]
     compile rootProject.ext.dependencies["rxlifecycle-android"]
