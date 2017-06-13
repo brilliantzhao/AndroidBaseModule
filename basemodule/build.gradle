@@ -23,7 +23,6 @@ android {
     lintOptions {
         abortOnError false
     }
-
 }
 
 dependencies {
@@ -55,7 +54,6 @@ dependencies {
 
     //=== glide (https://github.com/bumptech/glide)
     compile rootProject.ext.dependencies["glide"]
-    annotationProcessor rootProject.ext.dependencies["glide-compiler"]
 
     //=== Butter Knife
     compile rootProject.ext.dependencies["butterknife"]
