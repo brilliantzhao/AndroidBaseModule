@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.neenbedankt.android-apt'
 
 android {
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]
@@ -23,6 +24,7 @@ android {
     lintOptions {
         abortOnError false
     }
+
 }
 
 dependencies {
@@ -54,10 +56,11 @@ dependencies {
 
     //=== glide (https://github.com/bumptech/glide)
     compile rootProject.ext.dependencies["glide"]
+    annotationProcessor rootProject.ext.dependencies["glide-annotationProcessor"]
 
     //=== Butter Knife
     compile rootProject.ext.dependencies["butterknife"]
-    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
+    apt rootProject.ext.dependencies["butterknife-compiler"]
 
     //=== hawk (https://github.com/orhanobut/hawk)
     compile rootProject.ext.dependencies["hawk"]

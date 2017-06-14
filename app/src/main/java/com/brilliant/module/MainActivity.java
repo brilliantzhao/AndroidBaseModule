@@ -6,6 +6,8 @@ import com.basemodule.base.IBaseActivity;
 
 public class MainActivity extends IBaseActivity {
 
+    // IBaseActivity中注掉了setContentView(getLayoutId());，为了方便使用dataBinding,所以这里需要添加onCreate
+    // 方法
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
