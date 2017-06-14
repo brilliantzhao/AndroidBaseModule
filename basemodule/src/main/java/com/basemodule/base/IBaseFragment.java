@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.basemodule.utils.TUtil;
-import com.trello.rxlifecycle.LifecycleTransformer;
 
 import butterknife.ButterKnife;
 
@@ -162,11 +161,6 @@ public abstract class IBaseFragment<T extends IBasePresenter, E extends IBaseMod
     //######################   override methods end  ##############################################
 
     //###################### override custom metohds start ########################################
-
-    @Override
-    public <T> LifecycleTransformer<T> bindToLife() {
-        return null;
-    }
 
     //获取布局文件
     protected abstract int getLayoutResource();

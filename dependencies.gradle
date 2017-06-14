@@ -2,7 +2,6 @@ def supportVersion = "25.3.1"
 def multidexVersion = "1.0.1"
 def butterKnifeVersion = "8.6.0"
 def utilcodeVersion = "1.7.0"
-def rxlifecycleVersion = "1.0"
 def glideVersion = "4.0.0-RC0"
 def hawkVersion = "2.0.1"
 def fastjsonVersion = "1.2.33"
@@ -41,13 +40,6 @@ project.ext {
 
             //=== AndroidUtilCode  (https://github.com/Blankj/AndroidUtilCode)
             "utilcode"                 : "com.blankj:utilcode:${utilcodeVersion}",
-
-            //=== RxLifecycle  (https://github.com/trello/RxLifecycle)
-            "rxlifecycle"              : "com.trello:rxlifecycle:${rxlifecycleVersion}",
-            "rxlifecycle-android"      : "com.trello:rxlifecycle-android:${rxlifecycleVersion}",
-            "rxlifecycle-components"   : "com.trello:rxlifecycle-components:${rxlifecycleVersion}",
-            "rxlifecycle-navi"         : "com.trello:rxlifecycle-navi:${rxlifecycleVersion}",
-            "rxlifecycle-kotlin"       : "com.trello:rxlifecycle-kotlin:${rxlifecycleVersion}",
 
             //=== glide (https://github.com/bumptech/glide)
             "glide"                    : "com.github.bumptech.glide:glide:${glideVersion}",

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -15,8 +16,6 @@ import com.basemodule.baseapp.AppManager;
 import com.basemodule.utils.DisplayUtil;
 import com.basemodule.utils.TUtil;
 import com.basemodule.utils.log.MyLogUtil;
-import com.trello.rxlifecycle.LifecycleTransformer;
-import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
 
 import butterknife.ButterKnife;
 
@@ -52,7 +51,7 @@ import butterknife.ButterKnife;
 //    public void initView() {
 //    }
 //}
-public abstract class IBaseActivity<T extends IBasePresenter, E extends IBaseModel> extends RxAppCompatActivity
+public abstract class IBaseActivity<T extends IBasePresenter, E extends IBaseModel> extends AppCompatActivity
         implements IBaseView {
 
     //##########################  custom variables start ##########################################
@@ -111,11 +110,6 @@ public abstract class IBaseActivity<T extends IBasePresenter, E extends IBaseMod
     //######################   override methods end  ##############################################
 
     //###################### override custom metohds start ########################################
-
-    @Override
-    public <T> LifecycleTransformer<T> bindToLife() {
-        return this.<T>bindToLifecycle();
-    }
 
     //######################  override custom metohds end  ########################################
 

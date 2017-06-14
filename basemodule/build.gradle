@@ -47,13 +47,6 @@ dependencies {
     //=== multidex
     compile rootProject.ext.dependencies["multidex"]
 
-    //=== RxLifecycle  (https://github.com/trello/RxLifecycle)
-    compile rootProject.ext.dependencies["rxlifecycle"]
-    compile rootProject.ext.dependencies["rxlifecycle-android"]
-    compile rootProject.ext.dependencies["rxlifecycle-components"]
-    compile rootProject.ext.dependencies["rxlifecycle-navi"]
-    compile rootProject.ext.dependencies["rxlifecycle-kotlin"]
-
     //=== glide (https://github.com/bumptech/glide)
     compile rootProject.ext.dependencies["glide"]
     annotationProcessor rootProject.ext.dependencies["glide-annotationProcessor"]
