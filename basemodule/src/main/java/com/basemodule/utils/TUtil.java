@@ -32,7 +32,7 @@ public class TUtil {
      * @param className
      * @return
      */
-    public static Class<?> forName(String className) {
+    public static Class<?> forNameFFF(String className) {
         try {
             return Class.forName(className);
         } catch (ClassNotFoundException e) {
