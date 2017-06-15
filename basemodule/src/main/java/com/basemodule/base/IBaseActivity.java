@@ -51,6 +51,15 @@ import butterknife.ButterKnife;
 //    public void initView() {
 //    }
 //}
+
+/**
+ * BaseActivity带有两个泛型,分别限制是继承BasePresenter与BaseModel,通过TUtil生成两个Model与Presenter中,同时调用Presenter的setVM方传入View与Model。
+ * <p>
+ * 此时我们边能够再Activity中通过mPresenter调用Presenter,在Presenter中通过mView与mModel分别调用View与Model了。
+ *
+ * @param <T>
+ * @param <E>
+ */
 public abstract class IBaseActivity<T extends IBasePresenter, E extends IBaseModel> extends AppCompatActivity
         implements IBaseView {
 
@@ -75,10 +84,13 @@ public abstract class IBaseActivity<T extends IBasePresenter, E extends IBaseMod
 //         setContentView(getLayoutId());
         ButterKnife.bind(this);
         mContext = this;
+
+        // MVP模式
         mPresenter = TUtil.getT(this, 0);
         mModel = TUtil.getT(this, 1);
         if (mPresenter != null) {
             mPresenter.mContext = this;
+            if (this instanceof IBaseView) mPresenter.setVM(this, mModel);
         }
         this.initPresenter();
         this.initView();

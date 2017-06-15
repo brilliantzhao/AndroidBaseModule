@@ -88,11 +88,15 @@ public abstract class IBaseFragment<T extends IBasePresenter, E extends IBaseMod
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootView = inflater.inflate(getLayoutResource(), container, false);
         ButterKnife.bind(this, rootView);
+
+        // MVP模式
         mPresenter = TUtil.getT(this, 0);
         mModel = TUtil.getT(this, 1);
         if (mPresenter != null) {
             mPresenter.mContext = this.getActivity();
+            if (this instanceof IBaseView) mPresenter.setVM(this, mModel);
         }
+
         initPresenter();
         initView(rootView);
         initData(savedInstanceState);
