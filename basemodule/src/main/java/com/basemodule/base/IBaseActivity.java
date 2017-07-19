@@ -64,6 +64,8 @@ public abstract class IBaseActivity<T extends IBasePresenter, E extends IBaseMod
 
     public Context mContext;
 
+    public int statusHeight;
+
     //##########################   custom variables end  ##########################################
 
     //######################  override methods start ##############################################
@@ -88,6 +90,9 @@ public abstract class IBaseActivity<T extends IBasePresenter, E extends IBaseMod
         this.initData(savedInstanceState);
         // 添加Activity到堆栈
         AppManager.getAppManager().addActivity(this);
+        //===获取到状态栏的高度
+        statusHeight = DisplayUtil.getStatusBarHeight(this);
+        MyLogUtil.d("statusHeight = " + statusHeight);
     }
 
     @Override
@@ -234,9 +239,7 @@ public abstract class IBaseActivity<T extends IBasePresenter, E extends IBaseMod
                 return;
             }
             linear_bar.setVisibility(View.VISIBLE);
-            //获取到状态栏的高度
-            int statusHeight = DisplayUtil.getStatusBarHeight(this);
-            MyLogUtil.d("statusHeight = " + statusHeight);
+
             //动态的设置隐藏布局的高度
             LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) linear_bar.getLayoutParams();
             params.height = statusHeight;
