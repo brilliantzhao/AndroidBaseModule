@@ -2,4 +2,5 @@
 <resources>
 
     <color name="basemod_transparent">#00000000</color>
+    <color name="basemod_red">#FFFF0000</color>
 </resources>

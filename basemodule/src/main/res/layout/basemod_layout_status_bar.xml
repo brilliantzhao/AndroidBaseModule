@@ -2,9 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/layout_status_bar"
     android:layout_width="match_parent"
-    android:layout_height="66px"
+    android:layout_height="wrap_content"
     android:background="@color/basemod_transparent"
     android:orientation="vertical"
-    android:visibility="gone">
-
-</LinearLayout>
+    android:visibility="gone" />

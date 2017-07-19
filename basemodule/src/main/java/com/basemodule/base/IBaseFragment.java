@@ -60,8 +60,6 @@ public abstract class IBaseFragment<T extends IBasePresenter, E extends IBaseMod
 
     public final String TAG = this.getClass().getSimpleName();
 
-    protected View rootView;
-
     public T mPresenter;
 
     public E mModel;
@@ -72,6 +70,8 @@ public abstract class IBaseFragment<T extends IBasePresenter, E extends IBaseMod
     private boolean isReuseView;
 
     private boolean isFirstVisible;
+
+    protected View rootView;
 
     //##########################   custom variables end  ##########################################
 

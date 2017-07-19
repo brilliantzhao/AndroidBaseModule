@@ -3,11 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
     tools:context="com.brilliant.module.MainActivity">
 
+    <include layout="@layout/basemod_layout_status_bar"></include>
+
     <TextView
-        android:text="base module"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="base module" />
 </LinearLayout>

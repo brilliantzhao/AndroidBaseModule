@@ -230,6 +230,9 @@ public abstract class IBaseActivity<T extends IBasePresenter, E extends IBaseMod
 //            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
             // 自定义的状态栏
             LinearLayout linear_bar = (LinearLayout) findViewById(R.id.layout_status_bar);
+            if (linear_bar == null) {
+                return;
+            }
             linear_bar.setVisibility(View.VISIBLE);
             //获取到状态栏的高度
             int statusHeight = DisplayUtil.getStatusBarHeight(this);
