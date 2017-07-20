@@ -33,7 +33,7 @@ public class MyCrashUtils implements UncaughtExceptionHandler {
 
     private int CRASHLOG_KEEPDAY = 5;  // 错误日志的保留最长天数
 
-    private boolean IS_WORK_STATE = true; // 是否处于工作状态
+    private boolean IS_USE_SYSTEM = true; // 是否处于工作状态
 
     private boolean IS_REOPEN_APP = true; // 崩溃之后是否自动重新打开app
 
@@ -107,17 +107,18 @@ public class MyCrashUtils implements UncaughtExceptionHandler {
      * 初始化
      *
      * @param context
-     * @param IS_WORK_STATE
-     * @param IS_REOPEN_APP
-     * @param cls
-     * @param CRASHLOG_KEEPDAY
+     * @param DEFAULT_CRASH_FILE_PATH 崩溃日志存放文件
+     * @param IS_USE_SYSTEM           是否使用系统的崩溃处理方式
+     * @param IS_REOPEN_APP           崩溃后是否重新打开app
+     * @param cls                     重新打开app时app的启动页
+     * @param CRASHLOG_KEEPDAY        日志保留天数
      * @return {@code true}: 成功<br>{@code false}: 失败
      */
-    public boolean init(Context context, String DEFAULT_CRASH_FILE_PATH, boolean IS_WORK_STATE, boolean IS_REOPEN_APP, Class<?> cls,
+    public boolean init(Context context, String DEFAULT_CRASH_FILE_PATH, boolean IS_USE_SYSTEM, boolean IS_REOPEN_APP, Class<?> cls,
                         int CRASHLOG_KEEPDAY) {
         this.context = context;
         this.DEFAULT_CRASH_FILE_PATH = DEFAULT_CRASH_FILE_PATH;
-        this.IS_WORK_STATE = IS_WORK_STATE;
+        this.IS_USE_SYSTEM = IS_USE_SYSTEM;
         this.IS_REOPEN_APP = IS_REOPEN_APP;
         this.cls = cls;
         this.CRASHLOG_KEEPDAY = CRASHLOG_KEEPDAY;
@@ -151,11 +152,9 @@ public class MyCrashUtils implements UncaughtExceptionHandler {
         }
 
         //===
-        if (IS_WORK_STATE) {
-            // 调用系统来处理异常
-            if (mHandler != null) {
-                mHandler.uncaughtException(thread, throwable);
-            }
+        // 调用系统来处理异常
+        if (IS_USE_SYSTEM && mHandler != null) {
+            mHandler.uncaughtException(thread, throwable);
         }
         if (IS_REOPEN_APP) {
             // 直接重新启动应用
