@@ -104,7 +104,7 @@ public class MyCrashUtils implements UncaughtExceptionHandler {
     }
 
     /**
-     * 初始化
+     * 初始化 (注意：生效的前提是应用取得写文件权限)
      *
      * @param context
      * @param DEFAULT_CRASH_FILE_PATH 崩溃日志存放文件
